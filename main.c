@@ -24,7 +24,8 @@ int main(int argc, char **argv)
 	var.file = fopen(argv[1], "r");
 	if (!var.file)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		file_open_err(argv[1]);
+		/*fprintf(stderr, "Error: Can't open file %s\n", argv[1]);*/
 		free_all();
 		return (EXIT_FAILURE);
 	}
