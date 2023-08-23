@@ -12,7 +12,7 @@ int main(int ac, char **av)
 {
 	char *opcode;
 
-	if (ac != 2)
+	if (ac < 2 || ac > 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
