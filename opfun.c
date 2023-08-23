@@ -1,20 +1,20 @@
 #include "monty.h"
 /**
- * pall - Print list
- * @stack: Double linked list
- * @line_number: File line execution
+ * pall - prints all the values on the stack, starting from the top of the stack.
+ * @stack: Double linked list data struct
+ * @line_number: File line number when reading
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **head, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
+	stack_t *node_check = *head;
 	(void) line_number;
 
-	if (!tmp)
+	if (!node_check)
 		return;
-	while (tmp)
+	while (node_check)
 	{
-		printf("%d\n", tmp->n);
-		tmp = tmp->next;
+		printf("%d\n", node_check->n);
+		node_check = node_check->next;
 	}
 }
 
