@@ -67,9 +67,9 @@ typedef struct glob_var
 	stack_t *head;
 	unsigned int line_number;
 	int MODE;
-} vars;
+} global_var_struct;
 
-extern vars var;
+extern global_var_struct glob_data;
 
 
 
@@ -80,9 +80,9 @@ void file_open_err(const char *filename);
 
 
 
-int start_vars(vars *var);
+int start_vars(global_var_struct *glob_data);
 instruction_t *create_instru();
-int call_funct(vars *var, char *opcode);
+int call_funct(global_var_struct *glob_data, char *opcode);
 void free_all(void);
 int _isdigit(char *string);
 void pall(stack_t **stack, unsigned int line_number);
