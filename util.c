@@ -65,13 +65,14 @@ int call_funct(global_glob_data_struct *glob_data, char *opcode)
 {
 	int counter = 0;
 
-	while (glob_data->dict[i].opcode)
+	while (glob_data->dict[counter].opcode)
 	{
-		if (strcmp(opcode, glob_data->dict[i].opcode) == 0)
+		if (strcmp(opcode, glob_data->dict[counter].opcode) == 0)
 		{
-			if (!glob_data->dict[i].f)
+			if (!glob_data->dict[counter].f)
 				return (EXIT_SUCCESS);
-			glob_data->dict[i].f(&glob_data->head, glob_data->line_number);
+			glob_data->dict[counter].f(&glob_data->head,
+				glob_data->line_number);
 			return (EXIT_SUCCESS);
 		}
 		counter += 1;
