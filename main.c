@@ -12,7 +12,7 @@ global_glob_data_struct glob_data;
 int main(int argc, char **argv)
 {
 	char *opcode_tok;
-	int arg_num = 2, check, err_check;
+	int arg_num = 2, check;
 
 	if (argc < arg_num || argc > arg_num)
 	{
