@@ -13,7 +13,7 @@
 #include <ctype.h>
 
 /*new header*/
-/*#include <stdbool.h>*/
+#include <stdbool.h>
 
 #define Buffsize 30
 
