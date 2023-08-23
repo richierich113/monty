@@ -1,24 +1,20 @@
 #include "monty.h"
 
+vars var;
 
 /**
- * main - this is the program's entry point
- * @argumc: Number of arguments passed to program
- * @argumv: Pointer with array of argument passed to program
- * Return: 0 on Success, otherwise 1.
+ * main - Start LIFO, FILO program
+ * @ac: Number of arguments
+ * @av: Pointer containing arguments
+ * Return: 0 Success, 1 Failed
  */
-int main(int argumc, char **argumv)
+int main(int ac, char **av)
 {
 	char *opcode;
-	int arg_chk;
-	bool is_file = true
-	vars var;
-	arg_chk = 2;
 
-	if (argumc < arg_chk || argumc > arg_chk)
+	if (ac != 2)
 	{
-		is_file = false;
-		argument_errprnt(is_file);
+		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 
