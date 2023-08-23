@@ -2,20 +2,20 @@
 
 /**
  * start_vars - Fake rand to jackpoint Giga Millions
- * @var: Global variables to initialize
+ * @glob_data: Global variables to initialize
  * Return: 0 Success, 1 Failed
  */
-int start_vars(vars *var)
+int start_vars(global_var_struct *glob_data)
 {
-	var->file = NULL;
-	var->buff = NULL;
-	var->tmp = 0;
-	var->dict = create_instru();
-	if (var->dict == NULL)
+	glob_data->file = NULL;
+	glob_data->buff = NULL;
+	glob_data->tmp = 0;
+	glob_data->dict = create_instru();
+	if (glob_data->dict == NULL)
 		return (EXIT_FAILURE);
-	var->head = NULL;
-	var->line_number = 1;
-	var->MODE = 0;
+	glob_data->head = NULL;
+	glob_data->line_number = 1;
+	glob_data->MODE = 0;
 
 	return (EXIT_SUCCESS);
 }
@@ -57,26 +57,26 @@ instruction_t *create_instru()
 
 /**
  * call_funct - Call Functions
- * @var: Global variables
+ * @glob_data: Global variables
  * @opcode: Command to execute
  * Return: None
  */
-int call_funct(vars *var, char *opcode)
+int call_funct(global_var_struct *glob_data, char *opcode)
 {
 	int i;
 
-	for (i = 0; var->dict[i].opcode; i++)
-		if (strcmp(opcode, var->dict[i].opcode) == 0)
+	for (i = 0; glob_data->dict[i].opcode; i++)
+		if (strcmp(opcode, glob_data->dict[i].opcode) == 0)
 		{
-			if (!var->dict[i].f)
+			if (!glob_data->dict[i].f)
 				return (EXIT_SUCCESS);
-			var->dict[i].f(&var->head, var->line_number);
+			glob_data->dict[i].f(&glob_data->head, glob_data->line_number);
 			return (EXIT_SUCCESS);
 		}
 	if (strlen(opcode) != 0 && opcode[0] != '#')
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n",
-			var->line_number, opcode);
+			glob_data->line_number, opcode);
 		return (EXIT_FAILURE);
 	}
 
@@ -90,19 +90,19 @@ int call_funct(vars *var, char *opcode)
  */
 void free_all(void)
 {
-	if (var.buff != NULL)
-		free(var.buff);
-	if (var.file != NULL)
-		fclose(var.file);
-	free(var.dict);
-	if (var.head != NULL)
+	if (glob_data.buff != NULL)
+		free(glob_data.buff);
+	if (glob_data.file != NULL)
+		fclose(glob_data.file);
+	free(glob_data.dict);
+	if (glob_data.head != NULL)
 	{
-		while (var.head->next != NULL)
+		while (glob_data.head->next != NULL)
 		{
-			var.head = var.head->next;
-			free(var.head->prev);
+			glob_data.head = glob_data.head->next;
+			free(glob_data.head->prev);
 		}
-		free(var.head);
+		free(glob_data.head);
 	}
 }
 
