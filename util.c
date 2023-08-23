@@ -114,16 +114,16 @@ void free_all(void)
 
 /**
  * _isdigit - checks if a string parameter is an integer
- * @string: string to check if its an integer
+ * @opcode_arg: string to check if its an integer
  * Return: 0 for Success if integer, 1 otherwise
  */
-int _isdigit(char *string)
+int _isdigit(char *opcode_arg)
 {
 	int count = 0;
 
-	while (string[count])
+	while (opcode_arg[count])
 	{
-		if (string[count] < 48 || string[count] > 57)
+		if (opcode_arg[count] < 48 || opcode_arg[count] > 57)
 			return (1);
 
 		count++;
