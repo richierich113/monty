@@ -11,37 +11,43 @@ vars var;
 int main(int argc, char **argv)
 {
 	char *opcode;
+	int check, arg_num = 2;
+	bool isfile_passed = true;
 
-	if (argc < 2 || argc > 2)
+	if (argc < arg_num || argc > arg_num)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
+		isfile_passed = false;
+		argnum_error(isfile_passed);
 		return (EXIT_FAILURE);
 	}
-
-	if (start_vars(&var) != 0)
+	check = start_vars(&var);
+	if (check != 0)
 		return (EXIT_FAILURE);
-
-	var.file = fopen(av[1], "r");
-	if (!var.file)
+	if (access(filename, R_OK) == 0)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
+		var.file = fopen(argv[1], "r");
+		if (!var.file)
+		{
+			file_open_err(argv[1]);
+			free_all();
+			return (EXIT_FAILURE);
+		}
+		while (getline(&var.buff, &var.tmp, var.file) != -1)
+		{
+			opcode = strtok(var.buff, " \r\t\n");
+			if (opcode != NULL)
+				if (call_funct(&var, opcode) == EXIT_FAILURE)
+				{
+					free_all();
+					return (EXIT_FAILURE);
+				}
+			var.line_number++;
+		}
 		free_all();
-		return (EXIT_FAILURE);
+		return (EXIT_SUCCESS);
 	}
-
-	while (getline(&var.buff, &var.tmp, var.file) != EOF)
+	else
 	{
-		opcode = strtok(var.buff, " \r\t\n");
-		if (opcode != NULL)
-			if (call_funct(&var, opcode) == EXIT_FAILURE)
-			{
-				free_all();
-				return (EXIT_FAILURE);
-			}
-		var.line_number++;
-	}
-
-	free_all();
-
-	return (EXIT_SUCCESS);
+		file_open_err(argv[1]);
+		return (EXIT_FAILURE);
 }
