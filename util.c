@@ -8,11 +8,16 @@
 int start_global_glob_data_struct(global_glob_data_struct *glob_data)
 {
 	glob_data->file = NULL;
+
 	glob_data->tmp = 0;
+
 	glob_data->buff = NULL;
+
 	glob_data->dict = create_instru();
+
 	if (glob_data->dict == NULL)
 		return (EXIT_FAILURE);
+
 	glob_data->head = NULL;
 	glob_data->line_number = 1;
 	glob_data->MODE = 0;
@@ -120,6 +125,7 @@ int _isdigit(char *string)
 	{
 		if (string[count] < 48 || string[count] > 57)
 			return (1);
+
 		count++;
 	}
 	return (0);
