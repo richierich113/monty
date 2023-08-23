@@ -13,7 +13,7 @@
 #include <ctype.h>
 
 /*new header*/
-#include <stdbool.h>
+/*#include <stdbool.h>*/
 
 #define Buffsize 30
 
@@ -73,7 +73,7 @@ extern vars var;
 
 
 /*new functions*/
-void argument_errprnt(bool isfile_passed);
+/*void argument_errprnt(bool isfile_passed);*/
 
 
 
