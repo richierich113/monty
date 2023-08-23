@@ -73,7 +73,7 @@ extern vars var;
 
 
 /*new functions*/
-argument_errprnt(bool is_file);
+void argument_errprnt(bool is_file);
 
 
 
