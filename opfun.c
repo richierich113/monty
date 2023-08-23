@@ -25,7 +25,7 @@ void pall(stack_t **head, unsigned int line_number)
  */
 void push(stack_t **head, unsigned int line_number)
 {
-	stack_t *tmp = NULL, *tm = *stack;
+	stack_t *tmp = NULL, *node_check = *head;
 	char *num;
 
 	num = strtok(NULL, " \r\t\n");
@@ -53,10 +53,10 @@ void push(stack_t **head, unsigned int line_number)
 	}
 	else
 	{
-		while (tm->next)
-			tm = tm->next;
-		tm->next = tmp;
-		tmp->prev = tm;
+		while (node_check->next)
+			node_check = node_check->next;
+		node_check->next = tmp;
+		tmp->prev = node_check;
 		tmp->next = NULL;
 	}
 }
