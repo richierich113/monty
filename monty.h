@@ -75,7 +75,7 @@ extern vars var;
 
 
 /* new functions*/
-int argnum_error(bool isfile_passed);
+int argnum_error(void);
 void file_open_err(const char *filename);
 
 
