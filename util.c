@@ -1,15 +1,15 @@
 #include "monty.h"
 
 /**
- * start_global_glob_data_struct - Fake rand to jackpoint Giga Millions
- * @glob_data: Global glob_dataiables to initialize
- * Return: 0 Success, 1 Failed
+ * start_global_glob_data_struct - initialize the global vars in struct
+ * @glob_data: the variables in struct to initialize
+ * Return: 0 on Successful initialization, otherwise 1
  */
 int start_global_glob_data_struct(global_glob_data_struct *glob_data)
-{
+{	
 	glob_data->file = NULL;
-	glob_data->buff = NULL;
 	glob_data->tmp = 0;
+	glob_data->buff = NULL;
 	glob_data->dict = create_instru();
 	if (glob_data->dict == NULL)
 		return (EXIT_FAILURE);
@@ -26,33 +26,33 @@ int start_global_glob_data_struct(global_glob_data_struct *glob_data)
  */
 instruction_t *create_instru()
 {
-	instruction_t *ptr = malloc(sizeof(instruction_t) * 18);
+	instruction_t *instruct_buf = malloc(sizeof(instruction_t) * 18);
 
-	if (!ptr)
+	if (!instruct_buf)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		return (NULL);
 	}
-	ptr[0].opcode = "pall", ptr[0].f = pall;
-	ptr[1].opcode = "push", ptr[1].f = push;
-	ptr[2].opcode = "pint", ptr[2].f = pint;
-	ptr[3].opcode = "pop", ptr[3].f = pop;
-	ptr[4].opcode = "swap", ptr[4].f = swap;
-	ptr[5].opcode = "add", ptr[5].f = add;
-	ptr[6].opcode = "nop", ptr[6].f = NULL;
-	ptr[7].opcode = "sub", ptr[7].f = sub;
-	ptr[8].opcode = "div", ptr[8].f = divi;
-	ptr[9].opcode = "mul", ptr[9].f = mul;
-	ptr[10].opcode = "mod", ptr[10].f = mod;
-	ptr[11].opcode = "pchar", ptr[11].f = pchar;
-	ptr[12].opcode = "pstr", ptr[12].f = pstr;
-	ptr[13].opcode = "rotl", ptr[13].f = rotl;
-	ptr[14].opcode = "rotr", ptr[14].f = rotr;
-	ptr[15].opcode = "stack", ptr[15].f = stack;
-	ptr[16].opcode = "queue", ptr[16].f = queue;
-	ptr[17].opcode = NULL, ptr[17].f = NULL;
+	instruct_buf[0].opcode = "pall", instruct_buf[0].f = pall;
+	instruct_buf[1].opcode = "push", instruct_buf[1].f = push;
+	instruct_buf[2].opcode = "pint", instruct_buf[2].f = pint;
+	instruct_buf[3].opcode = "pop", instruct_buf[3].f = pop;
+	instruct_buf[4].opcode = "swap", instruct_buf[4].f = swap;
+	instruct_buf[5].opcode = "add", instruct_buf[5].f = add;
+	instruct_buf[6].opcode = "nop", instruct_buf[6].f = NULL;
+	instruct_buf[7].opcode = "sub", instruct_buf[7].f = sub;
+	instruct_buf[8].opcode = "div", instruct_buf[8].f = divi;
+	instruct_buf[9].opcode = "mul", instruct_buf[9].f = mul;
+	instruct_buf[10].opcode = "mod", instruct_buf[10].f = mod;
+	instruct_buf[11].opcode = "pchar", instruct_buf[11].f = pchar;
+	instruct_buf[12].opcode = "pstr", instruct_buf[12].f = pstr;
+	instruct_buf[13].opcode = "rotl", instruct_buf[13].f = rotl;
+	instruct_buf[14].opcode = "rotr", instruct_buf[14].f = rotr;
+	instruct_buf[15].opcode = "stack", instruct_buf[15].f = stack;
+	instruct_buf[16].opcode = "queue", instruct_buf[16].f = queue;
+	instruct_buf[17].opcode = NULL, instruct_buf[17].f = NULL;
 
-	return (ptr);
+	return (instruct_buf);
 }
 
 /**
