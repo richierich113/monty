@@ -3,22 +3,17 @@
 vars var;
 
 /**
- * main - the entry function to program
- * @argc: number of arguments passed to program parameter
- * @argv: pointer to array of arguments passed to program
- * parameter
- * Return: 0 on Success, otherwise 1
+ * main - Start LIFO, FILO program
+ * @ac: Number of arguments
+ * @av: Pointer containing arguments
+ * Return: 0 Success, 1 Failed
  */
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
 	char *opcode;
-	/*bool isfile_passed = true; */
-	/*int arg_count = 2; */
 
-	if (argc != 2)
+	if (ac != 2)
 	{
-		/*isfile_passed = false;*/
-		/*argument_errprnt(isfile_passed);*/
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
