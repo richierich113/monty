@@ -98,8 +98,10 @@ void free_all(void)
 {
 	if (glob_data.buff != NULL)
 		free(glob_data.buff);
+
 	if (glob_data.file != NULL)
 		fclose(glob_data.file);
+
 	free(glob_data.dict);
 	if (glob_data.head != NULL)
 	{
@@ -108,6 +110,7 @@ void free_all(void)
 			glob_data.head = glob_data.head->next;
 			free(glob_data.head->prev);
 		}
+
 		free(glob_data.head);
 	}
 }
