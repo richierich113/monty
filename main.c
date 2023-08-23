@@ -3,10 +3,11 @@
 vars var;
 
 /**
- * main - Start LIFO, FILO program
- * @argc: Number of arguments
- * @argv: Pointer containing arguments
- * Return: 0 Success, 1 Failed
+ * main - the entry function to program
+ * @argc: number of arguments passed to program parameter
+ * @argv: pointer to array of arguments passed to program
+ * parameter
+ * Return: 0 on Success, otherwise 1
  */
 int main(int argc, char **argv)
 {
