@@ -30,6 +30,7 @@ void file_open_err(const char *filename)
  * when instruction is unknown
  * @line_number: file line number when reading
  * @read_opcode: read command from file to execute
+ * unknown_instruc_err(glob_data->line_number, opcode)
  */
 void unknown_instruc_err(unsigned int line_number,
 	char *read_opcode)
