@@ -86,8 +86,8 @@ int call_funct(global_glob_data_struct *glob_data, char *read_opcode)
 }
 
 /**
- * free_all - Clean all program mallocs
- * Return: None
+ * free_all - frees all allocated data stored in
+ * glob_data data struct global variables
  */
 void free_all(void)
 {
@@ -108,18 +108,19 @@ void free_all(void)
 }
 
 /**
- * _isdigit - Clean all program mallocs
- * @string: Num to validate
- * Return: 0 Success, 1 Failed
+ * _isdigit - checks if a string parameter is an integer
+ * @string: string to check if its an integer
+ * Return: 0 for Success if integer, 1 otherwise
  */
 int _isdigit(char *string)
 {
-	int i;
+	int count = 0;
 
-	for (i = 0; string[i]; i++)
+	while (string[count])
 	{
-		if (string[i] < 48 || string[i] > 57)
+		if (string[count] < 48 || string[count] > 57)
 			return (1);
+		count++;
 	}
 	return (0);
 }
