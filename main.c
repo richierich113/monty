@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	if (argc < arg_count || argc > arg_count)
 	{
 		isfile_passed = false
-		argum_err(isfile_passed);
+		argument_errprnt(isfile_passed);
 		return (EXIT_FAILURE);
 	}
 
