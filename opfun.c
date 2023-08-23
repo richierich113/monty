@@ -19,11 +19,11 @@ void pall(stack_t **head, unsigned int line_number)
 }
 
 /**
- * push - Insert a new value in list
- * @stack: Double linked list
- * @line_number: File line execution
+ * push - pushes an element to the stack.
+ * @head: Double linked list data structure
+ * @line_number: File line number when reading
  */
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *tmp = NULL, *tm = *stack;
 	char *num;
