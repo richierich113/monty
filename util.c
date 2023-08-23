@@ -74,7 +74,7 @@ int call_funct(global_glob_data_struct *glob_data, char *opcode)
 			glob_data->dict[count].f(&glob_data->head, glob_data->line_number);
 			return (EXIT_SUCCESS);
 		}
-		count++;
+		count += 1;
 	}
 	if (strlen(opcode) != 0 && opcode[0] != '#')
 	{
