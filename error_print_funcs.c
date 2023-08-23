@@ -19,7 +19,7 @@ void argnum_error(bool isfile_passed)
  * file_open_err - Prints error message to stderr
  * when argument file passed cannot open or grants
  * no read permission
- * @argv: argument file name passed
+ * @filename: argument file name passed
  */
 void file_open_err(const char *filename)
 {
