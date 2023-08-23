@@ -14,7 +14,8 @@ int main(int argc, char **argv)
 
 	if (argc < 2 || argc > 2)
 	{
-		return (argnum_error());
+		fprintf(stderr, "USAGE: monty file\n");
+		return (EXIT_FAILURE);
 	}
 
 	if (start_vars(&var) != 0)
