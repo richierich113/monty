@@ -4,15 +4,15 @@ vars var;
 
 /**
  * main - Start LIFO, FILO program
- * @ac: Number of arguments
- * @av: Pointer containing arguments
+ * @argc: Number of arguments
+ * @argv: Pointer containing arguments
  * Return: 0 Success, 1 Failed
  */
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
 	char *opcode;
 
-	if (ac < 2 || ac > 2)
+	if (argc < 2 || argc > 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
