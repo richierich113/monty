@@ -61,33 +61,27 @@ instruction_t *create_instru()
  * @opcode: Command to execute
  * Return: None
  */
-int call_funct(global_glob_data_struct *glob_data, char *read_opcode)
+int call_funct(global_glob_data_struct *glob_data, char *opcode)
 {
-	int counter = 0;
+	int i;
 
-	while (glob_data->dict[counter].opcode)
-	{
-		if (strcmp(read_opcode, glob_data->dict[counter].opcode) == 0)
+	for (i = 0; glob_data->dict[i].opcode; i++)
+		if (strcmp(opcode, glob_data->dict[i].opcode) == 0)
 		{
-			if (!glob_data->dict[counter].f)
+			if (!glob_data->dict[i].f)
 				return (EXIT_SUCCESS);
-			glob_data->dict[counter].f(&glob_data->head,
-				glob_data->line_number);
+			glob_data->dict[i].f(&glob_data->head, glob_data->line_number);
 			return (EXIT_SUCCESS);
 		}
-		counter += 1;
-	}
-	if (strlen(read_opcode) != 0 && read_opcode[0] != '#')
+	if (strlen(opcode) != 0 && opcode[0] != '#')
 	{
-		/*unknown_instruc_err(glob_data->line_number, read_opcode);*/
 		fprintf(stderr, "L%u: unknown instruction %s\n",
-			glob_data->line_number, read_opcode);
+			glob_data->line_number, opcode);
 		return (EXIT_FAILURE);
 	}
 
 	return (EXIT_SUCCESS);
 }
-
 
 /**
  * free_all - Clean all program mallocs
