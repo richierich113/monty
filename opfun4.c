@@ -57,7 +57,7 @@ void stack(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	(void) stack;
 
-	var.MODE = 0;
+	glob_data.MODE = 0;
 }
 
 /**
@@ -70,5 +70,5 @@ void queue(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	(void) stack;
 
-	var.MODE = 1;
+	glob_data.MODE = 1;
 }
