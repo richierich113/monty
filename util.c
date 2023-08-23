@@ -63,18 +63,18 @@ instruction_t *create_instru()
  */
 int call_funct(global_glob_data_struct *glob_data, char *opcode)
 {
-	int i = 0;
+	int count = 0;
 
-	while (glob_data->dict[i].opcode)
+	while (glob_data->dict[count].opcode)
 	{
-		if (strcmp(opcode, glob_data->dict[i].opcode) == 0)
+		if (strcmp(opcode, glob_data->dict[count].opcode) == 0)
 		{
-			if (!glob_data->dict[i].f)
+			if (!glob_data->dict[count].f)
 				return (EXIT_SUCCESS);
-			glob_data->dict[i].f(&glob_data->head, glob_data->line_number);
+			glob_data->dict[count].f(&glob_data->head, glob_data->line_number);
 			return (EXIT_SUCCESS);
 		}
-		i++;
+		count++;
 	}
 	if (strlen(opcode) != 0 && opcode[0] != '#')
 	{
