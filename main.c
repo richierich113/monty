@@ -1,6 +1,5 @@
 #include "monty.h"
 
-vars var;
 
 /**
  * main - this is the program's entry point
@@ -13,7 +12,7 @@ int main(int argumc, char **argumv)
 	char *opcode;
 	int arg_chk;
 	bool is_file = true
-
+	vars var;
 	arg_chk = 2;
 
 	if (argumc < arg_chk || argumc > arg_chk)
