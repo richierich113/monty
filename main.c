@@ -12,12 +12,12 @@ vars var;
 int main(int argc, char **argv)
 {
 	char *opcode;
+	int arg_num = 2;
 
-	if (argc != 2)
+	if (argc < arg_num || argc > arg_num)
 	{
 		return (argnum_error());
 	}
-
 	if (start_vars(&var) != 0)
 		return (EXIT_FAILURE);
 
