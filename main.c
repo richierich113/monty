@@ -1,5 +1,6 @@
 #include "monty.h"
 
+vars var;
 /**
  * main - this is the program's entry point
  * @argumc: Number of arguments passed to program
