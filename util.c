@@ -61,13 +61,13 @@ instruction_t *create_instru()
  * @opcode: Command to execute
  * Return: None
  */
-int call_funct(global_glob_data_struct *glob_data, char *opcode)
+int call_funct(global_glob_data_struct *glob_data, char *read_opcode)
 {
 	int count = 0;
 
 	while (glob_data->dict[count].opcode)
 	{
-		if (strcmp(opcode, glob_data->dict[count].opcode) == 0)
+		if (strcmp(read_opcode, glob_data->dict[count].opcode) == 0)
 		{
 			if (!glob_data->dict[count].f)
 				return (EXIT_SUCCESS);
@@ -76,9 +76,9 @@ int call_funct(global_glob_data_struct *glob_data, char *opcode)
 		}
 		count += 1;
 	}
-	if (strlen(opcode) != 0 && opcode[0] != '#')
+	if (strlen(read_opcode) != 0 && read_opcode[0] != '#')
 	{
-		unknown_instruc_err(glob_data->line_number, opcode);
+		unknown_instruc_err(glob_data->line_number, read_opcode);
 		return (EXIT_FAILURE);
 	}
 
