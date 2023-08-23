@@ -11,8 +11,8 @@ global_glob_data_struct glob_data;
  */
 int main(int argc, char **argv)
 {
-	char *opcode;
-	int arg_num = 2, check;
+	char *opcode_tok;
+	int arg_num = 2, check, err_check;
 
 	if (argc < arg_num || argc > arg_num)
 	{
@@ -32,9 +32,10 @@ int main(int argc, char **argv)
 	for (glob_data.line_number = 1; getline(&glob_data.buff, &glob_data.tmp,
 		glob_data.file) != -1; glob_data.line_number++)
 	{
-		opcode = strtok(glob_data.buff, " \r\t\n");
-		if (opcode != NULL)
-			if (call_funct(&glob_data, opcode) == EXIT_FAILURE)
+		opcode_tok = strtok(glob_data.buff, " \r\t\n");
+		if (opcode_tok != NULL)
+			err_check = call_funct(&glob_data, opcode_tok);
+			if (err_check == EXIT_FAILURE)
 			{
 				free_all();
 				return (EXIT_FAILURE);
