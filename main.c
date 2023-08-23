@@ -12,13 +12,14 @@ vars var;
 int main(int argc, char **argv)
 {
 	char *opcode;
-	bool isfile_passed = true;
-	int arg_count = 2;
+	/*bool isfile_passed = true; */
+	/*int arg_count = 2; */
 
-	if (argc < arg_count || argc > arg_count)
+	if (argc != 2)
 	{
-		isfile_passed = false;
-		argument_errprnt(isfile_passed);
+		/*isfile_passed = false;*/
+		/*argument_errprnt(isfile_passed);*/
+		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 
