@@ -6,7 +6,7 @@
  * Return: 0 on Successful initialization, otherwise 1
  */
 int start_global_glob_data_struct(global_glob_data_struct *glob_data)
-{	
+{
 	glob_data->file = NULL;
 	glob_data->tmp = 0;
 	glob_data->buff = NULL;
