@@ -4,18 +4,17 @@ vars var;
 
 /**
  * main - Start LIFO, FILO program
- * @ac: Number of arguments
- * @av: Pointer containing arguments
+ * @argc: Number of arguments
+ * @argv: Pointer containing arguments
  * Return: 0 Success, 1 Failed
  */
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	char *opcode;
+	char *opcode_var;
 
-	if (ac < 2 || ac > 2)
+	if (argc < 2 || argc > 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
+		return (argnum_error());
 	}
 
 	if (start_vars(&var) != 0)
@@ -31,9 +30,9 @@ int main(int ac, char **av)
 
 	while (getline(&var.buff, &var.tmp, var.file) != EOF)
 	{
-		opcode = strtok(var.buff, " \r\t\n");
-		if (opcode != NULL)
-			if (call_funct(&var, opcode) == EXIT_FAILURE)
+		opcode_var = strtok(var.buff, " \r\t\n");
+		if (opcode_var != NULL)
+			if (call_funct(&var, opcode_var) == EXIT_FAILURE)
 			{
 				free_all();
 				return (EXIT_FAILURE);
