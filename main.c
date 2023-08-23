@@ -12,12 +12,12 @@ vars var;
 int main(int argc, char **argv)
 {
 	char *opcode;
-	bool isfile_passed = true
+	bool isfile_passed = true;
 	int arg_count = 2;
 
 	if (argc < arg_count || argc > arg_count)
 	{
-		isfile_passed = false
+		isfile_passed = false;
 		argument_errprnt(isfile_passed);
 		return (EXIT_FAILURE);
 	}
