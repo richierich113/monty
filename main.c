@@ -25,7 +25,6 @@ int main(int argc, char **argv)
 	if (!glob_data.file)
 	{
 		file_open_err(argv[1]);
-		/*fprintf(stderr, "Error: Can't open file %s\n", argv[1]);*/
 		free_all();
 		return (EXIT_FAILURE);
 	}
