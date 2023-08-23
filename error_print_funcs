@@ -6,5 +6,6 @@
  */
  void argument_errprnt(bool isfile_passed)
  {
- 	fprintf(stderr, "USAGE: monty file\n");
+	if (isfile_passed)
+		fprintf(stderr, "USAGE: monty file\n");
  }
