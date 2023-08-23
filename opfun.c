@@ -43,13 +43,14 @@ void push(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	tmp->n = atoi(num);
-	if (glob_data.MODE == 0 || !*stack)
+	if (glob_data.MODE == 0 || !*head)
 	{
-		tmp->next = *stack;
+		tmp->next = *head;
+
 		tmp->prev = NULL;
-		if (*stack)
-			(*stack)->prev = tmp;
-		*stack = tmp;
+		if (*head)
+			(*head)->prev = tmp;
+		*head = tmp;
 	}
 	else
 	{
