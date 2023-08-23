@@ -20,7 +20,7 @@ void argnum_error(bool isfile_passed)
  * no read permission
  * @argv: argument file name passed
  */
-void file_open_err(argv[1])
+void file_open_err(char *filename)
 {
-	fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+	fprintf(stderr, "Error: Can't open file %s\n", filename);
 }
