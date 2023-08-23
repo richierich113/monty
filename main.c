@@ -17,8 +17,7 @@ int main(int argc, char **argv)
 	if (argc < arg_num || argc > arg_num)
 	{
 		isfile_passed = false;
-		argnum_error(isfile_passed);
-		return (EXIT_FAILURE);
+		return (argnum_error(isfile_passed));
 	}
 	check = start_vars(&var);
 	if (check != 0)
