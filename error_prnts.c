@@ -1,5 +1,7 @@
 #include "monty.h"
 
+
+int argnum_error(void);
 /**
  * argnum_error - Prints error message to stderr
  * when argement passed is not 2
