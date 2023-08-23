@@ -6,12 +6,13 @@
  * when argument passed is not 2
  * @isfile_passed: boolean value parameter
  */
-void argnum_error(bool isfile_passed)
+int argnum_error(bool isfile_passed)
 {
 	if (isfile_passed)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 	}
+	return (EXIT_FAILURE);
 }
 
 
