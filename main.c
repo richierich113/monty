@@ -29,7 +29,8 @@ int main(int argc, char **argv)
 		free_all();
 		return (EXIT_FAILURE);
 	}
-	while (getline(&glob_data.buff, &glob_data.tmp, glob_data.file) != -1)
+	for (glob_data.line_number = 1; getline(&glob_data.buff, &glob_data.tmp,
+		glob_data.file) != -1; glob_data.line_number++)
 	{
 		opcode = strtok(glob_data.buff, " \r\t\n");
 		if (opcode != NULL)
@@ -38,7 +39,6 @@ int main(int argc, char **argv)
 				free_all();
 				return (EXIT_FAILURE);
 			}
-		glob_data.line_number++;
 	}
 	free_all();
 	return (EXIT_SUCCESS);
