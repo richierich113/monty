@@ -12,12 +12,10 @@ int main(int argc, char **argv)
 {
 	char *opcode;
 	int check, arg_num = 2;
-	bool isfile_passed = true;
 
 	if (argc < arg_num || argc > arg_num)
 	{
-		isfile_passed = false;
-		return (argnum_error(isfile_passed));
+		return (argnum_error());
 	}
 	check = start_vars(&var);
 	if (check != 0)
