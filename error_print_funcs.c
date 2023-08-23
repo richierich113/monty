@@ -8,10 +8,7 @@
  */
 int argnum_error(void)
 {
-	if (isfile_passed)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-	}
+	fprintf(stderr, "USAGE: monty file\n");
 	return (EXIT_FAILURE);
 }
 
