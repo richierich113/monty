@@ -49,7 +49,7 @@ typedef struct instruction_s
 
 
 /**
- * struct glob_var - golbal variables
+ * struct glob_glob_data - golbal glob_dataiables
  * @file: file name
  * @buff: Getline buffer
  * @tmp: Getline counter
@@ -58,7 +58,7 @@ typedef struct instruction_s
  * @line_number: Stores file current line
  * @MODE: Program configuration stack or queue
  */
-typedef struct glob_var
+typedef struct glob_glob_data
 {
 	FILE *file;
 	char *buff;
@@ -67,9 +67,9 @@ typedef struct glob_var
 	stack_t *head;
 	unsigned int line_number;
 	int MODE;
-} global_var_struct;
+} global_glob_data_struct;
 
-extern global_var_struct glob_data;
+extern global_glob_data_struct glob_data;
 
 
 
@@ -80,9 +80,9 @@ void file_open_err(const char *filename);
 
 
 
-int start_vars(global_var_struct *glob_data);
+int start_global_glob_data_struct(global_glob_data_struct *glob_data);
 instruction_t *create_instru();
-int call_funct(global_var_struct *glob_data, char *opcode);
+int call_funct(global_glob_data_struct *glob_data, char *opcode);
 void free_all(void);
 int _isdigit(char *string);
 void pall(stack_t **stack, unsigned int line_number);

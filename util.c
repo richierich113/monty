@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * start_vars - Fake rand to jackpoint Giga Millions
- * @glob_data: Global variables to initialize
+ * start_global_glob_data_struct - Fake rand to jackpoint Giga Millions
+ * @glob_data: Global glob_dataiables to initialize
  * Return: 0 Success, 1 Failed
  */
-int start_vars(global_var_struct *glob_data)
+int start_global_glob_data_struct(global_glob_data_struct *glob_data)
 {
 	glob_data->file = NULL;
 	glob_data->buff = NULL;
@@ -57,11 +57,11 @@ instruction_t *create_instru()
 
 /**
  * call_funct - Call Functions
- * @glob_data: Global variables
+ * @glob_data: Global glob_dataiables
  * @opcode: Command to execute
  * Return: None
  */
-int call_funct(global_var_struct *glob_data, char *opcode)
+int call_funct(global_glob_data_struct *glob_data, char *opcode)
 {
 	int i;
 

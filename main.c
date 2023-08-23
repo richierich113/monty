@@ -1,6 +1,6 @@
 #include "monty.h"
 
-global_var_struct glob_data;
+global_glob_data_struct glob_data;
 
 /**
  * main - the entry function to program
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	{
 		return (argnum_error());
 	}
-	check = start_vars(&glob_data);
+	check = start_global_glob_data_struct(&glob_data);
 	if (check != 0)
 		return (EXIT_FAILURE);
 	glob_data.file = fopen(argv[1], "r");
