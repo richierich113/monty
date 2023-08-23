@@ -1,6 +1,6 @@
 #include "monty.h"
 
-vars var;
+global_var_struct glob_data;
 
 /**
  * main - the entry function to program
@@ -18,27 +18,27 @@ int main(int argc, char **argv)
 	{
 		return (argnum_error());
 	}
-	check = start_vars(&var);
+	check = start_vars(&glob_data);
 	if (check != 0)
 		return (EXIT_FAILURE);
-	var.file = fopen(argv[1], "r");
-	if (!var.file)
+	glob_data.file = fopen(argv[1], "r");
+	if (!glob_data.file)
 	{
 		file_open_err(argv[1]);
 		/*fprintf(stderr, "Error: Can't open file %s\n", argv[1]);*/
 		free_all();
 		return (EXIT_FAILURE);
 	}
-	while (getline(&var.buff, &var.tmp, var.file) != EOF)
+	while (getline(&glob_data.buff, &glob_data.tmp, glob_data.file) != -1)
 	{
-		opcode = strtok(var.buff, " \r\t\n");
+		opcode = strtok(glob_data.buff, " \r\t\n");
 		if (opcode != NULL)
-			if (call_funct(&var, opcode) == EXIT_FAILURE)
+			if (call_funct(&glob_data, opcode) == EXIT_FAILURE)
 			{
 				free_all();
 				return (EXIT_FAILURE);
 			}
-		var.line_number++;
+		glob_data.line_number++;
 	}
 	free_all();
 	return (EXIT_SUCCESS);
