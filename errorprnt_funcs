@@ -1,0 +1,10 @@
+#include "monty.h"
+
+/**
+ * argument_errprnt - prints error message to statndard
+ * output when argument passed to program is not 2
+ */
+void argument_errprnt(bool is_file)
+{
+	fprintf(stderr, "USAGE: monty file\n");
+}
