@@ -86,7 +86,7 @@ void unknown_instruc_err(unsigned int line_number,
 
 int start_global_glob_data_struct(global_glob_data_struct *glob_data);
 instruction_t *create_instru();
-int call_funct(global_glob_data_struct *glob_data, char *opcode);
+int call_funct(global_glob_data_struct *glob_data, char *read_opcode);
 void free_all(void);
 int _isdigit(char *string);
 
