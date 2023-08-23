@@ -3,18 +3,19 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include <sys/uio.h>
 #include <errno.h>
-#include <fcntl.h>
 #include <ctype.h>
-
+#include <string.h>
 /*new header*/
 #include <stdbool.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
+
+/* constant val*/
 #define Buffsize 30
 
 /**
@@ -33,30 +34,17 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-/**
- * struct instruction_s - Opcode and its function
- * @opcode: the opcode
- * @f: function to handle the opcode
- *
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
- */
-typedef struct instruction_s
-{
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t;
-
 
 /**
- * struct glob_glob_data - golbal glob_dataiables
+ * struct glob_glob_data - data struct for data used in multiple
+ * file modules
  * @file: file name
- * @buff: Getline buffer
- * @tmp: Getline counter
- * @dict: instruction dictionary
- * @head: pointer to list
- * @line_number: Stores file current line
- * @MODE: Program configuration stack or queue
+ * @tmp: number of chars read from file data
+ * @dict: data of the instruction in a dictionary
+ * @buff: getline function buffer data
+ * @head: pointer to linked list data
+ * @line_number: file line number tracker
+ * @MODE: program mode whether stack or queue
  */
 typedef struct glob_glob_data
 {
@@ -73,6 +61,23 @@ extern global_glob_data_struct glob_data;
 
 
 
+/**
+ * struct instruction_s - Opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct instruction_s
+{
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
+
+
+
+
 
 /* new functions*/
 int argnum_error(void);
@@ -85,20 +90,21 @@ instruction_t *create_instru();
 int call_funct(global_glob_data_struct *glob_data, char *opcode);
 void free_all(void);
 int _isdigit(char *string);
-void pall(stack_t **stack, unsigned int line_number);
-void push(stack_t **stack, unsigned int line_number);
+
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
 void divi(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
-void rotl(stack_t **stack, unsigned int line_number);
-void rotr(stack_t **stack, unsigned int line_number);
 void stack(stack_t **stack, unsigned int line_number);
 void queue(stack_t **stack, unsigned int line_number);
 
