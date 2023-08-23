@@ -78,8 +78,7 @@ int call_funct(global_glob_data_struct *glob_data, char *opcode)
 	}
 	if (strlen(opcode) != 0 && opcode[0] != '#')
 	{
-		fprintf(stderr, "L%u: unknown instruction %s\n",
-			glob_data->line_number, opcode);
+		unknown_instruc_err(glob_data->line_number, opcode);
 		return (EXIT_FAILURE);
 	}
 
