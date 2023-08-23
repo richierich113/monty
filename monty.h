@@ -35,6 +35,22 @@ typedef struct stack_s
 } stack_t;
 
 
+
+
+/**
+ * struct instruction_s - Opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct instruction_s
+{
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
+
 /**
  * struct glob_glob_data - data struct for data used in multiple
  * file modules
@@ -58,24 +74,6 @@ typedef struct glob_glob_data
 } global_glob_data_struct;
 
 extern global_glob_data_struct glob_data;
-
-
-
-/**
- * struct instruction_s - Opcode and its function
- * @opcode: the opcode
- * @f: function to handle the opcode
- *
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
- */
-typedef struct instruction_s
-{
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t;
-
-
 
 
 
