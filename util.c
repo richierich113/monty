@@ -21,8 +21,8 @@ int start_global_glob_data_struct(global_glob_data_struct *glob_data)
 }
 
 /**
- * create_instru - Create new functions dictionary
- * Return: Dictionary pointer
+ * create_instru - Creates a new functions dictionary
+ * Return: pointer to the created dictionary
  */
 instruction_t *create_instru()
 {
