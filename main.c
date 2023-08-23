@@ -12,15 +12,15 @@ vars var;
 int main(int argc, char **argv)
 {
 	char *opcode;
-	int arg_num = 2;
+	int arg_num = 2, check;
 
 	if (argc < arg_num || argc > arg_num)
 	{
 		return (argnum_error());
 	}
-	if (start_vars(&var) != 0)
+	check = start_vars(&var);
+	if (check != 0)
 		return (EXIT_FAILURE);
-
 	var.file = fopen(argv[1], "r");
 	if (!var.file)
 	{
@@ -29,7 +29,6 @@ int main(int argc, char **argv)
 		free_all();
 		return (EXIT_FAILURE);
 	}
-
 	while (getline(&var.buff, &var.tmp, var.file) != EOF)
 	{
 		opcode = strtok(var.buff, " \r\t\n");
@@ -41,8 +40,6 @@ int main(int argc, char **argv)
 			}
 		var.line_number++;
 	}
-
 	free_all();
-
 	return (EXIT_SUCCESS);
 }
