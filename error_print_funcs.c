@@ -4,10 +4,9 @@
 /**
  * argnum_error - Prints error message to stderr
  * when argument passed is not 2
- * @isfile_passed: boolean value parameter
  * Return: EXIT_FAILURE
  */
-int argnum_error(bool isfile_passed)
+int argnum_error(void)
 {
 	if (isfile_passed)
 	{
