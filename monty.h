@@ -72,8 +72,11 @@ typedef struct glob_var
 extern vars var;
 
 
-/*new functions*/
-/*void argument_errprnt(bool isfile_passed);*/
+
+
+/* new functions*/
+void argnum_error(bool isfile_passed);
+void file_open_err(char *filename);
 
 
 
