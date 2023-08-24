@@ -2,11 +2,11 @@
 
 
 /**
- * pint - prints the value at the top of the stack
+ * pint_func - prints the value at the top of the stack
  * @head: Double linked list data structure
  * @line_number: File line number when reading
  */
-void pint(stack_t **head, unsigned int line_number)
+void pint_func(stack_t **head, unsigned int line_number)
 {
 	if (!*head)
 	{
