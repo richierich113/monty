@@ -1,29 +1,38 @@
 #include "monty.h"
 
+
 /**
- * start_global_glob_data_struct - initialize the global vars in struct
- * @glob_data: the variables in struct to initialize
- * Return: 0 on Successful initialization, otherwise 1
+ * exec_func - calls needed functions
+ * @glob_data: data struct for global vars
+ * @read_opcode: command in mext_file to execute
+ * Return: 0 on success, otherwise 1
  */
-int start_global_glob_data_struct(global_glob_data_struct *glob_data)
+int exec_func(global_glob_data_struct *glob_data, char *read_opcode)
 {
-	glob_data->mext_file = NULL;
+	int count = 0;
 
-	glob_data->tmp = 0;
-
-	glob_data->buff = NULL;
-
-	glob_data->dict = new_dict_func();
-
-	if (glob_data->dict == NULL)
+	while (glob_data->dict[count].opcode)
+	{
+		if (strcmp(read_opcode, glob_data->dict[count].opcode) == 0)
+		{
+			if (!glob_data->dict[count].f)
+				return (EXIT_SUCCESS);
+			glob_data->dict[count].f(&glob_data->head, glob_data->line_number);
+			return (EXIT_SUCCESS);
+		}
+		count += 1;
+	}
+	if (strlen(read_opcode) != 0 && read_opcode[0] != '#')
+	{
+		unknown_instruc_err(glob_data->line_number, read_opcode);
 		return (EXIT_FAILURE);
-
-	glob_data->head = NULL;
-	glob_data->line_number = 1;
-	glob_data->MODE = 0;
+	}
 
 	return (EXIT_SUCCESS);
 }
+
+
+
 
 /**
  * new_dict_func - Creates a new functions dictionary
@@ -59,38 +68,6 @@ instruction_t *new_dict_func()
 
 	return (instruct_buf);
 }
-
-/**
- * exec_func - calls needed functions
- * @glob_data: data struct for global vars
- * @read_opcode: command in mext_file to execute
- * Return: 0 on success, otherwise 1
- */
-int exec_func(global_glob_data_struct *glob_data, char *read_opcode)
-{
-	int count = 0;
-
-	while (glob_data->dict[count].opcode)
-	{
-		if (strcmp(read_opcode, glob_data->dict[count].opcode) == 0)
-		{
-			if (!glob_data->dict[count].f)
-				return (EXIT_SUCCESS);
-			glob_data->dict[count].f(&glob_data->head, glob_data->line_number);
-			return (EXIT_SUCCESS);
-		}
-		count += 1;
-	}
-	if (strlen(read_opcode) != 0 && read_opcode[0] != '#')
-	{
-		unknown_instruc_err(glob_data->line_number, read_opcode);
-		return (EXIT_FAILURE);
-	}
-
-	return (EXIT_SUCCESS);
-}
-
-
 
 /**
  * is_strint_int - checks if a string parameter is an integer
