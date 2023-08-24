@@ -1,82 +1,107 @@
 #include "monty.h"
 
 /**
- * mul - s
- * @stack: Double linked list
- * @line_number: File line execution
+ * mul - multiplies the second top element of the stack
+ * with the top element of the stack.
+ * @head: top node of stack Double linked list data structure
+ * @line_number: File line number when reading
+ * Description: multiplies the second top element of the stack
+ * with the top element of the stack.
+ * The result is stored in the second top element of the stack,
+ * and the top element is removed, so that at the end:
+ * The top element of the stack contains the result
+ * The stack is one element shorter
  */
-void mul(stack_t **stack, unsigned int line_number)
+void mul(stack_t **head, unsigned int line_number)
 {
-	if (!*stack || !(*stack)->next)
+	if (!*head || !(*head)->next)
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n",
-			line_number);
+		multiply_err(line_number);
+
 		free_all();
+
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
-	pop(stack, line_number);
+
+	(*head)->next->n *= (*head)->n;
+
+	pop(head, line_number);
 }
 
 
 /**
- * mod - s
- * @stack: Double linked list
- * @line_number: File line execution
+ * mod - computes the rest of the division of the second top element of
+ * the stack by the top element of the stack.
+ * @head: top node of stack Double linked list data structure
+ * @line_number: File line number when reading
  */
-void mod(stack_t **stack, unsigned int line_number)
+void mod(stack_t **head, unsigned int line_number)
 {
-	if (!*stack || !(*stack)->next)
+	if (!*head || !(*head)->next)
 	{
-		fprintf(stderr, "L%u: can't mod, stack too short\n",
-			line_number);
+		modulus_err(line_number);
+
 		free_all();
+
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n == 0)
+
+	if ((*head)->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
+
 		free_all();
+
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n = (*stack)->next->n % (*stack)->n;
-	pop(stack, line_number);
+
+	(*head)->next->n %= (*head)->n;
+
+	pop(head, line_number);
 }
 
+
 /**
- * pchar - s
- * @stack: Double linked list
- * @line_number: File line execution
+ * pchar - prints the char at the top of the stack, followed by a new line.
+ * The integer stored at the top of the stack is treated as the ascii value
+ * of the character to be printed
+ * @head: top node of stack Double linked list data structure
+ * @line_number: File line number when reading
  */
-void pchar(stack_t **stack, unsigned int line_number)
+void pchar(stack_t **head, unsigned int line_number)
 {
-	if (!stack || !*stack)
+	if (!head || !*head)
 	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		print_char_err(line_number);
+
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	if (isascii((*stack)->n))
+
+	if (isascii((*head)->n))
 	{
-		printf("%c\n", (*stack)->n);
+		printf("%c\n", (*head)->n);
 		return;
 	}
-	fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+
+	printch_out_of_range_err(line_number);
+
 	free_all();
+
 	exit(EXIT_FAILURE);
 }
 
 /**
- * pstr - s
- * @stack: Double linked list
- * @line_number: File line execution
+ * pstr - prints the string starting at the top of the stack, followed by a new line.
+ * @head: top node of stack Double linked list data structure
+ * @line_number: File line number when reading
  */
-void pstr(stack_t **stack, unsigned int line_number)
+void pstr(stack_t **head, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
+	stack_t *tmp = *head;
 	(void) line_number;
 
-	if (!stack || !*stack)
+	if (!head || !*head)
 	{
 		putchar('\n');
 		return;
