@@ -48,7 +48,7 @@ void mod(stack_t **head, unsigned int line_number)
 
 	if ((*head)->n == 0)
 	{
-		fprintf(stderr, "L%u: division by zero\n", line_number);
+		div_by_zero_err(line_number);
 
 		free_all();
 
