@@ -46,6 +46,7 @@ void push(stack_t **head, unsigned int line_number)
 	if (glob_data.MODE == 0 || !*head)
 	{
 		new_elem->next = *head;
+		*head = new_elem;
 
 		new_elem->prev = NULL;
 		if (*head)
