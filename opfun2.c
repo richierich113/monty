@@ -31,8 +31,9 @@ void swap(stack_t **head, unsigned int line_number)
  * add - adds the top two elements of the stack.
  * @head: Double linked list data struct head
  * @line_number: File line number when reading
- * Description: stored in the second top element of the stack,
- * and the top element is removed, so that at the end:
+ * Description: adds the top two elements of the stack and
+ * store in the second top element of the stack.
+ * The top element is removed, so that at the end:
  * The top element of the stack contains the result
  * The stack is one element shorter
  */
@@ -55,6 +56,11 @@ void add(stack_t **head, unsigned int line_number)
  * top element of the stack.
  * @head: Double linked list data struct head
  * @line_number: File line number when reading
+ * Description: subtracts the top element of the stack from the second
+ * top element of the stack. Store in the second top element of the stack,
+ * and the top element is removed, so that at the end:
+ * The top element of the stack contains the result
+ * The stack is one element shorter
  */
 void sub(stack_t **head, unsigned int line_number)
 {
@@ -65,7 +71,8 @@ void sub(stack_t **head, unsigned int line_number)
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	(*head)->next->n = (*head)->next->n - (*head)->n;
+	(*head)->next->n -= (*head)->n;
+
 	pop(head, line_number);
 }
 
