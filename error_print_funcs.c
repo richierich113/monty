@@ -28,7 +28,7 @@ void file_open_err(const char *filename)
 /**
  * malloc_err - Prints error message to stderr when malloc fails
  */
-void malloc_err();
+void malloc_err(void);
 {
 	fprintf(stderr, "Error: malloc failed\n");
 }
