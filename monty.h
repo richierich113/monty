@@ -91,6 +91,11 @@ void add_stack_err(unsigned int line_number);
 void div_err(unsigned int line_number);
 void sub_err(unsigned int line_number);
 void div_by_zero_err(unsigned int line_number);
+void multiply_err(unsigned int line_number);
+void modulus_err(unsigned int line_number);
+void print_char_err(unsigned int line_number);
+void printch_out_of_range_err(unsigned int line_number);
+
 
 
 int start_global_glob_data_struct(global_glob_data_struct *glob_data);
