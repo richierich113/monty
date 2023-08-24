@@ -46,6 +46,7 @@ void add(stack_t **head, unsigned int line_number)
 		free_all();
 		exit(EXIT_FAILURE);
 	}
+
 	(*head)->next->n += (*head)->n;
 
 	pop(head, line_number);
@@ -71,6 +72,7 @@ void sub(stack_t **head, unsigned int line_number)
 		free_all();
 		exit(EXIT_FAILURE);
 	}
+
 	(*head)->next->n -= (*head)->n;
 
 	pop(head, line_number);
@@ -92,6 +94,7 @@ void divi(stack_t **head, unsigned int line_number)
 
 		exit(EXIT_FAILURE);
 	}
+
 	if ((*head)->n == 0)
 	{
 		div_by_zero_err(line_number);
@@ -100,6 +103,7 @@ void divi(stack_t **head, unsigned int line_number)
 
 		exit(EXIT_FAILURE);
 	}
+
 	(*head)->next->n /= (*head)->n;
 
 	pop(head, line_number);
