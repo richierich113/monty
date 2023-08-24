@@ -98,7 +98,8 @@ void pchar(stack_t **head, unsigned int line_number)
 }
 
 /**
- * pstr - prints the string starting at the top of the stack, followed by a new line.
+ * pstr - prints the string starting at the top of the stack,
+ * followed by a new line.
  * @head: top node of stack Double linked list data structure
  * @line_number: File line number when reading
  */
