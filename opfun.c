@@ -7,13 +7,16 @@
 void pall(stack_t **head, unsigned int line_number)
 {
 	stack_t *node_check = *head;
+
 	(void) line_number;
 
 	if (!node_check)
 		return;
+
 	while (node_check)
 	{
 		printf("%d\n", node_check->n);
+
 		node_check = node_check->next;
 	}
 }
@@ -25,7 +28,8 @@ void pall(stack_t **head, unsigned int line_number)
  */
 void push(stack_t **head, unsigned int line_number)
 {
-	stack_t *new_elem = NULL, *node_check = *head;
+	stack_t *new_elem = NULL;
+	stack_t *node_check = *head;
 	char *num;
 
 	num = strtok(NULL, " \r\t\n");
@@ -47,7 +51,6 @@ void push(stack_t **head, unsigned int line_number)
 	{
 		new_elem->next = *head;
 		/* *head = new_elem; */
-
 		new_elem->prev = NULL;
 		if (*head)
 			(*head)->prev = new_elem;
@@ -57,6 +60,7 @@ void push(stack_t **head, unsigned int line_number)
 	{
 		while (node_check->next)
 			node_check = node_check->next;
+
 		node_check->next = new_elem;
 		new_elem->prev = node_check;
 		new_elem->next = NULL;
