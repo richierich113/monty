@@ -115,5 +115,5 @@ void pop(stack_t **head, unsigned int line_number)
 		top_node->next->prev = NULL;
 	}
 
-	free(*head);
+	free(top_node);
 }
