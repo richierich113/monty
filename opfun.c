@@ -107,8 +107,8 @@ void pop(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	*head = *head->next;
-	top_node = *head->next;
+	*head = (*head)->next;
+	top_node = (*head)->next;
 	top_node->prev = NULL;
 
 	if (top_node->next)
