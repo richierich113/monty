@@ -61,10 +61,10 @@ instruction_t *create_instru()
 }
 
 /**
- * call_funct - Call Functions
- * @glob_data: Global glob_dataiables
- * @opcode: Command to execute
- * Return: None
+ * call_funct - calls needed functions
+ * @glob_data: data struct for global vars
+ * @read_opcode: command in file to execute
+ * Return: 0 on success, otherwise 1
  */
 int call_funct(global_glob_data_struct *glob_data, char *read_opcode)
 {
