@@ -17,7 +17,7 @@
 
 
 /* constant val*/
-#define Buffsize 30
+#define BUFFERSIZE 30
 
 /**
  * struct stack_s - Doubly linked list representation of a stack (or queue)
