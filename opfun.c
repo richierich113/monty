@@ -70,18 +70,18 @@ void push(stack_t **head, unsigned int line_number)
 
 /**
  * pint - prints the value at the top of the stack
- * @stack: Double linked list data structure
+ * @head: Double linked list data structure
  * @line_number: File line number when reading
  */
-void pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **head, unsigned int line_number)
 {
-	if (!*stack)
+	if (!*head)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*stack)->n);
+	printf("%d\n", (*head)->n);
 }
 
 
