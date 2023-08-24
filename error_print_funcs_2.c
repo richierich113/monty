@@ -51,7 +51,7 @@ void div_err(unsigned int line_number)
  * element of the stack is 0
  * @line_number: file line number when reading
  */
-void div_by_zero_err(line_number)
+void div_by_zero_err(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: division by zero\n", line_number);
 }
