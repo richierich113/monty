@@ -89,7 +89,8 @@ void pint(stack_t **head, unsigned int line_number)
 
 
 /**
-* pop - removes the top element of the stack.
+* pop - removes the top element of the stack updating the pointers
+* of adjacent nodes and freeing the memory of the removed element
 * @head: Doubly linked list data struct head
 * @line_number: File line number when reading
 */
