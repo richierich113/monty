@@ -2,11 +2,11 @@
 
 
 /**
- * push - pushes an element to the stack.
+ * push_func - pushes an element to the stack.
  * @head: Double linked list data structure
  * @line_number: File line number when reading
  */
-void push(stack_t **head, unsigned int line_number)
+void push_func(stack_t **head, unsigned int line_number)
 {
 	stack_t *new_elem = NULL;
 	stack_t *node_check = *head;
