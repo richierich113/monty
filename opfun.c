@@ -96,7 +96,7 @@ void pint(stack_t **head, unsigned int line_number)
 */
 void pop(stack_t **head, unsigned int line_number)
 {
-	stack_t *top_node, *top_holder;
+	stack_t *top_node;
 
 	if (!*head)
 	{
@@ -107,14 +107,13 @@ void pop(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	top_holder = *head;
-	*head = (*head)->next;
 	top_node = *head;
-	top_node->prev = NULL;
+	*head = top_node->next;
+
 	if (top_node->next)
 	{
-		top_node->next->prev = top_node;
+		top_node->next->prev = NULL;
 	}
 
-	free(top_holder);
+	free(*head);
 }
