@@ -92,7 +92,7 @@ void sub(stack_t **head, unsigned int line_number)
  */
 void divi(stack_t **head, unsigned int line_number)
 {
-	int result;
+	float result;
 
 	if (!*head || !(*head)->next)
 	{
