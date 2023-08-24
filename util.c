@@ -40,7 +40,7 @@ instruction_t *create_instru()
 	}
 	instruct_buf[0].opcode = "pall", instruct_buf[0].f = pall;
 	instruct_buf[1].opcode = "push", instruct_buf[1].f = push;
-	instruct_buf[2].opcode = "pint", instruct_buf[2].f = pint;
+	instruct_buf[2].opcode = "pint", instruct_buf[2].f = pint_func;
 	instruct_buf[3].opcode = "pop", instruct_buf[3].f = pop;
 	instruct_buf[4].opcode = "swap", instruct_buf[4].f = swap;
 	instruct_buf[5].opcode = "add", instruct_buf[5].f = add;
