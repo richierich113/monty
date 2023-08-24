@@ -31,7 +31,7 @@ void mod_func(stack_t **head, unsigned int line_number)
 	result = (*head)->next->n % (*head)->n;
 	(*head)->next->n = result;
 
-	pop(head, line_number);
+	pop_func(head, line_number);
 }
 
 
@@ -123,5 +123,5 @@ void mul_func(stack_t **head, unsigned int line_number)
 	result = (*head)->next->n * (*head)->n;
 	(*head)->next->n = result;
 
-	pop(head, line_number);
+	pop_func(head, line_number);
 }
