@@ -1,4 +1,26 @@
 #include "monty.h"
+
+
+/**
+ * pint - prints the value at the top of the stack
+ * @head: Double linked list data structure
+ * @line_number: File line number when reading
+ */
+void pint(stack_t **head, unsigned int line_number)
+{
+	if (!*head)
+	{
+		pint_err(line_number);
+
+		free_all();
+
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*head)->n);
+}
+
+
 /**
  * pall - prints all the values on the stack, starting
  * from the top of the stack.
@@ -22,70 +44,6 @@ void pall(stack_t **head, unsigned int line_number)
 	}
 }
 
-/**
- * push - pushes an element to the stack.
- * @head: Double linked list data structure
- * @line_number: File line number when reading
- */
-void push(stack_t **head, unsigned int line_number)
-{
-	stack_t *new_elem = NULL;
-	stack_t *node_check = *head;
-	char *num;
-
-	num = strtok(NULL, " \r\t\n");
-	if (num == NULL || (_isdigit(num) != 0 && num[0] != '-'))
-	{
-		push_error(line_number);
-		free_all();
-		exit(EXIT_FAILURE);
-	}
-	new_elem = malloc(sizeof(stack_t));
-	if (!new_elem)
-	{
-		malloc_err();
-		free_all();
-		exit(EXIT_FAILURE);
-	}
-	new_elem->n = atoi(num);
-	if (glob_data.MODE == 0 || !*head)
-	{
-		new_elem->next = *head;
-		/* *head = new_elem; */
-		new_elem->prev = NULL;
-		if (*head)
-			(*head)->prev = new_elem;
-		*head = new_elem;
-	}
-	else
-	{
-		while (node_check->next)
-			node_check = node_check->next;
-
-		node_check->next = new_elem;
-		new_elem->prev = node_check;
-		new_elem->next = NULL;
-	}
-}
-
-/**
- * pint - prints the value at the top of the stack
- * @head: Double linked list data structure
- * @line_number: File line number when reading
- */
-void pint(stack_t **head, unsigned int line_number)
-{
-	if (!*head)
-	{
-		pint_err(line_number);
-
-		free_all();
-
-		exit(EXIT_FAILURE);
-	}
-
-	printf("%d\n", (*head)->n);
-}
 
 
 /**
