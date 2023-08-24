@@ -22,7 +22,7 @@ void add_func(stack_t **head, unsigned int line_number)
 
 	(*head)->next->n += (*head)->n;
 
-	pop(head, line_number);
+	pop_func(head, line_number);
 }
 
 /**
@@ -53,7 +53,7 @@ void div_func(stack_t **head, unsigned int line_number)
 
 	(*head)->next->n /= (*head)->n;
 
-	pop(head, line_number);
+	pop_func(head, line_number);
 }
 
 
@@ -108,5 +108,5 @@ void sub_func(stack_t **head, unsigned int line_number)
 
 	(*head)->next->n -= (*head)->n;
 
-	pop(head, line_number);
+	pop_func(head, line_number);
 }
