@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * mod - computes the rest of the division of the second top element of
+ * mod_func - computes the rest of the division of the second top element of
  * the stack by the top element of the stack.
  * @head: top node of stack Double linked list data structure
  * @line_number: File line number when reading
  */
-void mod(stack_t **head, unsigned int line_number)
+void mod_func(stack_t **head, unsigned int line_number)
 {
 	int result;
 
@@ -36,12 +36,12 @@ void mod(stack_t **head, unsigned int line_number)
 
 
 /**
- * pstr - prints the string starting at the top of the stack,
+ * pstr_func - prints the string starting at the top of the stack,
  * followed by a new line.
  * @head: top node of stack Double linked list data structure
  * @line_number: File line number when reading
  */
-void pstr(stack_t **head, unsigned int line_number)
+void pstr_func(stack_t **head, unsigned int line_number)
 {
 	stack_t *tmp = *head;
 	(void) line_number;
@@ -66,13 +66,13 @@ void pstr(stack_t **head, unsigned int line_number)
 
 
 /**
- * pchar - prints the char at the top of the stack, followed by a new line.
+ * pchar_func - prints the char at the top of the stack, followed by a new line.
  * The integer stored at the top of the stack is treated as the ascii value
  * of the character to be printed
  * @head: top node of stack Double linked list data structure
  * @line_number: File line number when reading
  */
-void pchar(stack_t **head, unsigned int line_number)
+void pchar_func(stack_t **head, unsigned int line_number)
 {
 	if (!head || !*head)
 	{
@@ -96,7 +96,7 @@ void pchar(stack_t **head, unsigned int line_number)
 }
 
 /**
- * mul - multiplies the second top element of the stack
+ * mul_func - multiplies the second top element of the stack
  * with the top element of the stack.
  * @head: top node of stack Double linked list data structure
  * @line_number: File line number when reading
@@ -107,7 +107,7 @@ void pchar(stack_t **head, unsigned int line_number)
  * The top element of the stack contains the result
  * The stack is one element shorter
  */
-void mul(stack_t **head, unsigned int line_number)
+void mul_func(stack_t **head, unsigned int line_number)
 {
 	int result;
 
