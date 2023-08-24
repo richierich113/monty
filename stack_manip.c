@@ -66,7 +66,8 @@ void pstr_func(stack_t **head, unsigned int line_number)
 
 
 /**
- * pchar_func - prints the char at the top of the stack, followed by a new line.
+ * pchar_func - prints the char at the top of the stack,
+ * followed by a new line.
  * The integer stored at the top of the stack is treated as the ascii value
  * of the character to be printed
  * @head: top node of stack Double linked list data structure
