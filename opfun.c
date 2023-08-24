@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
- * pall - prints all the values on the stack, starting from the top of the stack.
+ * pall - prints all the values on the stack, starting
+ * from the top of the stack.
  * @head: Double linked list data struct
  * @line_number: File line number when reading
  */
