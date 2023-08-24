@@ -2,12 +2,12 @@
 
 
 /**
-* pop - removes the top element of the stack updating the pointers
+* pop_func - removes the top element of the stack updating the pointers
 * of adjacent nodes and freeing the memory of the removed element
 * @head: Doubly linked list data struct head
 * @line_number: File line number when reading
 */
-void pop(stack_t **head, unsigned int line_number)
+void pop_func(stack_t **head, unsigned int line_number)
 {
 	stack_t *top_node;
 
