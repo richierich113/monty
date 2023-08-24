@@ -14,7 +14,7 @@ void pall(stack_t **head, unsigned int line_number)
 	if (!node_check)
 		return;
 
-	while (node_check->next != NULL)
+	while (node_check)
 	{
 		printf("%d\n", node_check->n);
 
@@ -69,8 +69,8 @@ void push(stack_t **head, unsigned int line_number)
 }
 
 /**
- * pint - Print last node
-  * @stack: Double linked list data structure
+ * pint - prints the value at the top of the stack
+ * @stack: Double linked list data structure
  * @line_number: File line number when reading
  */
 void pint(stack_t **stack, unsigned int line_number)
