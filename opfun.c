@@ -86,24 +86,28 @@ void pint(stack_t **head, unsigned int line_number)
 
 
 /**
-* pop - Delete top of list
-* @stack: Double linked list
-* @line_number: File line execution
+* pop - removes the top element of the stack.
+* @head: Doubly linked list data struct head
+* @line_number: File line number when reading
 */
-void pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **head, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *top_node;
 
-	if (!*stack)
+	if (!*head)
 	{
 		pop_err(line_number);
+
 		free_all();
+
 		exit(EXIT_FAILURE);
 	}
 
-	tmp = *stack;
-	*stack = tmp->next;
-	if (tmp->next)
-		tmp->next->prev = NULL;
-	free(tmp);
+	top_node = *head;
+	*head = top_node->next;
+
+	if (top_node->next)
+		top_node->next->prev = NULL;
+
+	free(top_node);
 }
