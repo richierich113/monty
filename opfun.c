@@ -25,7 +25,7 @@ void pall(stack_t **head, unsigned int line_number)
  */
 void push(stack_t **head, unsigned int line_number)
 {
-	stack_t *tmp = NULL, *node_check = *head;
+	stack_t *new_elem = NULL, *node_check = *head;
 	char *num;
 
 	num = strtok(NULL, " \r\t\n");
@@ -35,30 +35,30 @@ void push(stack_t **head, unsigned int line_number)
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	tmp = malloc(sizeof(stack_t));
-	if (!tmp)
+	new_elem = malloc(sizeof(stack_t));
+	if (!new_elem)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	tmp->n = atoi(num);
+	new_elem->n = atoi(num);
 	if (glob_data.MODE == 0 || !*head)
 	{
-		tmp->next = *head;
+		new_elem->next = *head;
 
-		tmp->prev = NULL;
+		new_elem->prev = NULL;
 		if (*head)
-			(*head)->prev = tmp;
-		*head = tmp;
+			(*head)->prev = new_elem;
+		*head = new_elem;
 	}
 	else
 	{
 		while (node_check->next)
 			node_check = node_check->next;
 		node_check->next = tmp;
-		tmp->prev = node_check;
-		tmp->next = NULL;
+		new_elem->prev = node_check;
+		new_elem->next = NULL;
 	}
 }
 
