@@ -75,7 +75,7 @@ void pstr_func(stack_t **head, unsigned int line_number)
  */
 void pchar_func(stack_t **head, unsigned int line_number)
 {
-	if (!head || !*head)
+	if (!*head)
 	{
 		print_char_err(line_number);
 
