@@ -40,3 +40,12 @@ void unknown_instruc_err(unsigned int line_number,
 }
 
 
+/**
+ * unknown_instruc_err - Prints error message to stderr
+ * when instruction is unknown
+ * @line_number: file line number when reading
+ */
+void push_error(unsigned int line_number)
+{
+	fprintf(stderr, "L%u: usage: push integer\n", line_number);
+}
