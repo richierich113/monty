@@ -1,74 +1,54 @@
 #include "monty.h"
 
 /**
- * rotl - s
- * @stack: Double linked list
- * @line_number: File line execution
+ * rotl - rotates the stack to the top.
+ * @head: Double linked list data struct
+ * @line_number: File line number when reading
  */
-void rotl(stack_t **stack, unsigned int line_number)
+void rotl(stack_t **head, unsigned int line_number)
 {
-	stack_t *tm = *stack;
+	stack_t *tmp_node = *head;
 	(void) line_number;
 
-	if (!stack || !*stack || !(*stack)->next)
-		return;
-	(*stack)->next->prev = NULL;
-	while (tm->next)
-		tm = tm->next;
-	tm->next = *stack;
-	(*stack) = (*stack)->next;
-	tm->next->next = NULL;
-	tm->next->prev = tm;
-}
-
-/**
- * rotr - s
- * @stack: Double linked list
- * @line_number: File line execution
- */
-void rotr(stack_t **stack, unsigned int line_number)
-{
-	stack_t *tmp;
-	(void) line_number;
-
-	if (!stack || !*stack || !(*stack)->next)
+	if (!head || !*head || !(*head)->next)
 		return;
 
-	tmp = *stack;
-	while (tmp->next)
-		tmp = tmp->next;
+	(*head)->next->prev = NULL;
 
-	tmp->next = *stack;
-	tmp->prev->next = NULL;
-	tmp->prev = NULL;
+	while (tmp_node->next)
+		tmp_node = tmp_node->next;
 
-	(*stack)->prev = tmp;
-	*stack = tmp;
+	tmp_node->next = *head;
 
+	(*head) = (*head)->next;
+
+	tmp_node->next->next = NULL;
+
+	tmp_node->next->prev = tmp_node;
 }
 
 /**
- * stack - s
- * @stack: Double linked list
- * @line_number: File line execution
+ * rotr -  rotates the stack to the bottom.
+ * @head: Double linked list data struct
+ * @line_number: File line number when reading
  */
-void stack(stack_t **stack, unsigned int line_number)
+void rotr(stack_t **head, unsigned int line_number)
 {
+	stack_t *tmp_node;
 	(void) line_number;
-	(void) stack;
 
-	glob_data.MODE = 0;
-}
+	if (!head || !*head || !(*head)->next)
+		return;
 
-/**
- * queue - s
- * @stack: Double linked list
- * @line_number: File line execution
- */
-void queue(stack_t **stack, unsigned int line_number)
-{
-	(void) line_number;
-	(void) stack;
+	tmp_node = *head;
+	while (tmp_node->next)
+		tmp_node = tmp_node->next;
 
-	glob_data.MODE = 1;
+	tmp_node->next = *head;
+	tmp_node->prev->next = NULL;
+	tmp_node->prev = NULL;
+
+	(*head)->prev = tmp_node;
+	*head = tmp_node;
+
 }
