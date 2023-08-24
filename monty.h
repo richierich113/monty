@@ -95,8 +95,8 @@ void free_all(void);
 int _isdigit(char *string);
 
 void pint(stack_t **head, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
+void pop(stack_t **head, unsigned int line_number);
+void swap(stack_t **head, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
