@@ -105,20 +105,20 @@ void free_all(void);
 int _isdigit(char *string);
 
 void pint_func(stack_t **head, unsigned int line_number);
-void pop(stack_t **head, unsigned int line_number);
-void swap(stack_t **head, unsigned int line_number);
-void add(stack_t **head, unsigned int line_number);
-void sub(stack_t **head, unsigned int line_number);
-void rotl(stack_t **head, unsigned int line_number);
-void rotr(stack_t **head, unsigned int line_number);
-void pall(stack_t **head, unsigned int line_number);
-void push(stack_t **head, unsigned int line_number);
-void divi(stack_t **head, unsigned int line_number);
-void mul(stack_t **head, unsigned int line_number);
-void mod(stack_t **head, unsigned int line_number);
-void pchar(stack_t **head, unsigned int line_number);
-void pstr(stack_t **head, unsigned int line_number);
-void stack(stack_t **head, unsigned int line_number);
-void queue(stack_t **head, unsigned int line_number);
+void pop_func(stack_t **head, unsigned int line_number);
+void swap_func(stack_t **head, unsigned int line_number);
+void add_func(stack_t **head, unsigned int line_number);
+void sub_func(stack_t **head, unsigned int line_number);
+void rotl_func(stack_t **head, unsigned int line_number);
+void rotr_func(stack_t **head, unsigned int line_number);
+void pall_func(stack_t **head, unsigned int line_number);
+void push_func(stack_t **head, unsigned int line_number);
+void div_func(stack_t **head, unsigned int line_number);
+void mul_func(stack_t **head, unsigned int line_number);
+void mod_func(stack_t **head, unsigned int line_number);
+void pchar_func(stack_t **head, unsigned int line_number);
+void pstr_func(stack_t **head, unsigned int line_number);
+void stack_func(stack_t **head, unsigned int line_number);
+void queue_func(stack_t **head, unsigned int line_number);
 
 #endif /* MONTY_H */
