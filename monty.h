@@ -97,11 +97,6 @@ void modulus_err(unsigned int line_number);
 void print_char_err(unsigned int line_number);
 void printch_out_of_range_err(unsigned int line_number);
 
-ssize_t getline(char **restrict lineptr, size_t *restrict n,
-	FILE *restrict stream);
-
-int isascii(int c);
-
 
 int start_global_glob_data_struct(global_glob_data_struct *glob_data);
 instruction_t *create_instru();
