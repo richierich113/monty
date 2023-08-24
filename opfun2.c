@@ -92,8 +92,6 @@ void sub(stack_t **head, unsigned int line_number)
  */
 void divi(stack_t **head, unsigned int line_number)
 {
-	float result;
-
 	if (!*head || !(*head)->next)
 	{
 		div_err(line_number);
@@ -112,8 +110,7 @@ void divi(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	result = (*head)->next->n / (*head)->n;
-	(*head)->next->n = result;
+	(*head)->next->n /= (*head)->n;
 
 	pop(head, line_number);
 }
