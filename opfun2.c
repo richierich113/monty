@@ -25,21 +25,21 @@ void swap(stack_t **head, unsigned int line_number)
 }
 
 /**
- * add - add the top two elements of the stack
- * @stack: Double linked list
- * @line_number: File line execution
+ * add - swaps the top two elements of the stack.
+ * @head: Double linked list data struct head
+ * @line_number: File line number when reading
  */
-void add(stack_t **stack, unsigned int line_number)
+void add(stack_t **head, unsigned int line_number)
 {
-	if (!*stack || !(*stack)->next)
+	if (!*head || !(*head)->next)
 	{
 		add_stack_err(line_number);
 
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n = (*stack)->next->n + (*stack)->n;
-	pop(stack, line_number);
+	(*head)->next->n = (*head)->next->n + (*head)->n;
+	pop(head, line_number);
 }
 
 /**
