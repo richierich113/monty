@@ -2,11 +2,11 @@
 
 
 /**
- * rotr -  rotates the stack to the bottom.
+ * rotr_func -  rotates the stack to the bottom.
  * @head: Double linked list data struct
  * @line_number: File line number when reading
  */
-void rotr(stack_t **head, unsigned int line_number)
+void rotr_func(stack_t **head, unsigned int line_number)
 {
 	stack_t *tmp_node;
 
@@ -33,11 +33,11 @@ void rotr(stack_t **head, unsigned int line_number)
 
 
 /**
- * rotl - rotates the stack to the top.
+ * rotl_func - rotates the stack to the top.
  * @head: Double linked list data struct
  * @line_number: File line number when reading
  */
-void rotl(stack_t **head, unsigned int line_number)
+void rotl_func(stack_t **head, unsigned int line_number)
 {
 	stack_t *tmp_node = *head;
 	(void) line_number;
