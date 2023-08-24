@@ -104,7 +104,7 @@ int call_funct(global_glob_data_struct *glob_data, char *read_opcode);
 void free_all(void);
 int _isdigit(char *string);
 
-void pint(stack_t **head, unsigned int line_number);
+void pint_func(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void add(stack_t **head, unsigned int line_number);
