@@ -109,10 +109,13 @@ void pop(stack_t **head, unsigned int line_number)
 
 	*head = (*head)->next;
 	top_node = *head;
-	top_node->prev = NULL;
+	
 
-	if (top_node->next != NULL)
+	if (top_node)
+	{
+		top_node->prev = NULL;
 		top_node->next->prev = top_node;
+	}
 
 	free(*head);
 }
