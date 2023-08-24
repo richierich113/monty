@@ -35,7 +35,7 @@ void push(stack_t **head, unsigned int line_number)
 	num = strtok(NULL, " \r\t\n");
 	if (num == NULL || (_isdigit(num) != 0 && num[0] != '-'))
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		push_error(line_number);
 		free_all();
 		exit(EXIT_FAILURE);
 	}
