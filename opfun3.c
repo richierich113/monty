@@ -40,6 +40,8 @@ void mul(stack_t **head, unsigned int line_number)
  */
 void mod(stack_t **head, unsigned int line_number)
 {
+	int result;
+
 	if (!*head || !(*head)->next)
 	{
 		modulus_err(line_number);
@@ -58,7 +60,8 @@ void mod(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	(*head)->next->n %= (*head)->n;
+	result = (*head)->next->n % (*head)->n;
+	(*head)->next->n = result;
 
 	pop(head, line_number);
 }
