@@ -45,7 +45,7 @@ void print_char_err(unsigned int line_number)
 
 /**
  * printch_out_of_range_err - Prints error message to stderr
- * If the value is not in the ascii table 
+ * If the value is not in the ascii table
  * @line_number: file line number when reading
  */
 void printch_out_of_range_err(unsigned int line_number)
