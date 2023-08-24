@@ -43,7 +43,7 @@ void push(stack_t **head, unsigned int line_number)
 	new_elem = malloc(sizeof(stack_t));
 	if (!new_elem)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		malloc_err();
 		free_all();
 		exit(EXIT_FAILURE);
 	}
@@ -77,7 +77,7 @@ void pint(stack_t **head, unsigned int line_number)
 {
 	if (!*head)
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		pint_err(line_number);
 		free_all();
 		exit(EXIT_FAILURE);
 	}
@@ -96,7 +96,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (!*stack)
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		pop_err(line_number);
 		free_all();
 		exit(EXIT_FAILURE);
 	}
