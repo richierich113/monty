@@ -69,19 +69,20 @@ void push(stack_t **head, unsigned int line_number)
 
 /**
  * pint - Print last node
-  * @head: Double linked list data structure
+  * @stack: Double linked list data structure
  * @line_number: File line number when reading
  */
-void pint(stack_t **head, unsigned int line_number)
+void pint(stack_t **stack, unsigned int line_number)
 {
-	if (!*head)
+	if (!*stack)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*head)->n);
+	printf("%d\n", (*stack)->n);
 }
+
 
 /**
 * pop - Delete top of list
