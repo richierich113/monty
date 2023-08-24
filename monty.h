@@ -83,6 +83,9 @@ void file_open_err(const char *filename);
 void unknown_instruc_err(unsigned int line_number,
 	char *read_opcode);
 void push_error(unsigned int line_number);
+void malloc_err();
+void pint_err(unsigned int line_number);
+void pop_err(unsigned int line_number);
 
 
 int start_global_glob_data_struct(global_glob_data_struct *glob_data);
