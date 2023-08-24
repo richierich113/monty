@@ -35,7 +35,7 @@ instruction_t *create_instru()
 
 	if (!instruct_buf)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		malloc_err();
 		return (NULL);
 	}
 	instruct_buf[0].opcode = "pall", instruct_buf[0].f = pall;
