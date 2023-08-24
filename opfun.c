@@ -114,7 +114,8 @@ void pop(stack_t **head, unsigned int line_number)
 	if (top_node)
 	{
 		top_node->prev = NULL;
-		top_node->next->prev = top_node;
+		if (top_node->next)
+			top_node->next->prev = top_node;
 	}
 
 	free(*head);
