@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * add - adds the top two elements of the stack.
+ * add_func - adds the top two elements of the stack.
  * @head: Double linked list data struct head
  * @line_number: File line number when reading
  * Description: adds the top two elements of the stack and
@@ -10,7 +10,7 @@
  * The top element of the stack contains the result
  * The stack is one element shorter
  */
-void add(stack_t **head, unsigned int line_number)
+void add_func(stack_t **head, unsigned int line_number)
 {
 	if (!*head || !(*head)->next)
 	{
@@ -26,12 +26,12 @@ void add(stack_t **head, unsigned int line_number)
 }
 
 /**
- * divi - divides the second top element of the stack
+ * div_func - divides the second top element of the stack
  * by the top element of the stack.
  * @head: Double linked list data struct head
  * @line_number: File line number when reading
  */
-void divi(stack_t **head, unsigned int line_number)
+void div_func(stack_t **head, unsigned int line_number)
 {
 	if (!*head || !(*head)->next)
 	{
@@ -58,23 +58,11 @@ void divi(stack_t **head, unsigned int line_number)
 
 
 /**
- * sub - subtracts the top element of the stack from the second
- * top element of the stack.
- * @head: Double linked list data struct head
- * @line_number: File line number when reading
- * Description: subtracts the top element of the stack from the second
- * top element of the stack. Store in the second top element of the stack,
- * and the top element is removed, so that at the end:
- * The top element of the stack contains the result
- * The stack is one element shorter
- */
-
-/**
- * swap - swaps the top two elements of the stack.
+ * swap_func - swaps the top two elements of the stack.
  * @head: Double linked list data struct head
  * @line_number: File line number when reading
  */
-void swap(stack_t **head, unsigned int line_number)
+void swap_func(stack_t **head, unsigned int line_number)
 {
 	int val_a;
 	int val_b;
@@ -97,8 +85,18 @@ void swap(stack_t **head, unsigned int line_number)
 }
 
 
-
-void sub(stack_t **head, unsigned int line_number)
+/**
+ * sub_func - subtracts the top element of the stack from the second
+ * top element of the stack.
+ * @head: Double linked list data struct head
+ * @line_number: File line number when reading
+ * Description: subtracts the top element of the stack from the second
+ * top element of the stack. Store in the second top element of the stack,
+ * and the top element is removed, so that at the end:
+ * The top element of the stack contains the result
+ * The stack is one element shorter
+ */
+void sub_func(stack_t **head, unsigned int line_number)
 {
 	if (!*head || !(*head)->next)
 	{
