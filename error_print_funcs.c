@@ -26,6 +26,14 @@ void file_open_err(const char *filename)
 
 
 /**
+ * malloc_err - Prints error message to stderr when malloc fails
+ */
+void malloc_err();
+{
+	fprintf(stderr, "Error: malloc failed\n");
+}
+
+/**
  * unknown_instruc_err - Prints error message to stderr
  * when instruction is unknown
  * @line_number: file line number when reading
