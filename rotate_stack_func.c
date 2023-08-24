@@ -1,5 +1,37 @@
 #include "monty.h"
 
+
+/**
+ * rotr -  rotates the stack to the bottom.
+ * @head: Double linked list data struct
+ * @line_number: File line number when reading
+ */
+void rotr(stack_t **head, unsigned int line_number)
+{
+	stack_t *tmp_node;
+
+	(void) line_number;
+
+	if (!head || !*head || !(*head)->next)
+		return;
+
+	tmp_node = *head;
+
+	while (tmp_node->next)
+		tmp_node = tmp_node->next;
+
+	tmp_node->next = *head;
+
+	tmp_node->prev->next = NULL;
+	tmp_node->prev = NULL;
+
+	(*head)->prev = tmp_node;
+
+	*head = tmp_node;
+
+}
+
+
 /**
  * rotl - rotates the stack to the top.
  * @head: Double linked list data struct
@@ -25,30 +57,4 @@ void rotl(stack_t **head, unsigned int line_number)
 	tmp_node->next->next = NULL;
 
 	tmp_node->next->prev = tmp_node;
-}
-
-/**
- * rotr -  rotates the stack to the bottom.
- * @head: Double linked list data struct
- * @line_number: File line number when reading
- */
-void rotr(stack_t **head, unsigned int line_number)
-{
-	stack_t *tmp_node;
-	(void) line_number;
-
-	if (!head || !*head || !(*head)->next)
-		return;
-
-	tmp_node = *head;
-	while (tmp_node->next)
-		tmp_node = tmp_node->next;
-
-	tmp_node->next = *head;
-	tmp_node->prev->next = NULL;
-	tmp_node->prev = NULL;
-
-	(*head)->prev = tmp_node;
-	*head = tmp_node;
-
 }
