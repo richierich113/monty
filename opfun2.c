@@ -31,6 +31,10 @@ void swap(stack_t **head, unsigned int line_number)
  * add - adds the top two elements of the stack.
  * @head: Double linked list data struct head
  * @line_number: File line number when reading
+ * Description: stored in the second top element of the stack,
+ * and the top element is removed, so that at the end:
+ * The top element of the stack contains the result
+ * The stack is one element shorter
  */
 void add(stack_t **head, unsigned int line_number)
 {
