@@ -89,6 +89,7 @@ void divi(stack_t **head, unsigned int line_number)
 		div_err(line_number);
 
 		free_all();
+
 		exit(EXIT_FAILURE);
 	}
 	if ((*head)->n == 0)
@@ -96,8 +97,10 @@ void divi(stack_t **head, unsigned int line_number)
 		div_by_zero_err(line_number);
 
 		free_all();
+
 		exit(EXIT_FAILURE);
 	}
-	(*head)->next->n = (*head)->next->n / (*head)->n;
+	(*head)->next->n /= (*head)->n;
+
 	pop(head, line_number);
 }
