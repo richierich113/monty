@@ -86,6 +86,11 @@ void push_error(unsigned int line_number);
 void malloc_err(void);
 void pint_err(unsigned int line_number);
 void pop_err(unsigned int line_number);
+void swap_err(unsigned int line_number);
+void add_stack_err(unsigned int line_number);
+void div_err(unsigned int line_number);
+void sub_err(unsigned int line_number);
+void div_by_zero_err(unsigned int line_number);
 
 
 int start_global_glob_data_struct(global_glob_data_struct *glob_data);
