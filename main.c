@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 	{
 		opcode_tok = strtok(glob_data.buff, " \r\t\n");
 		if (opcode_tok != NULL)
-			if (call_funct(&glob_data, opcode_tok) == EXIT_FAILURE)
+			if (exec_func(&glob_data, opcode_tok) == EXIT_FAILURE)
 			{
 				free_all();
 				return (EXIT_FAILURE);

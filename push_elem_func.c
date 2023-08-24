@@ -13,7 +13,7 @@ void push_func(stack_t **head, unsigned int line_number)
 	char *num;
 
 	num = strtok(NULL, " \r\t\n");
-	if (num == NULL || (_isdigit(num) != 0 && num[0] != '-'))
+	if (num == NULL || (is_strint_int(num) != 0 && num[0] != '-'))
 	{
 		push_error(line_number);
 		free_all();

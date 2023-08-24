@@ -13,7 +13,7 @@ int start_global_glob_data_struct(global_glob_data_struct *glob_data)
 
 	glob_data->buff = NULL;
 
-	glob_data->dict = create_instru();
+	glob_data->dict = new_dict_func();
 
 	if (glob_data->dict == NULL)
 		return (EXIT_FAILURE);
@@ -26,10 +26,10 @@ int start_global_glob_data_struct(global_glob_data_struct *glob_data)
 }
 
 /**
- * create_instru - Creates a new functions dictionary
+ * new_dict_func - Creates a new functions dictionary
  * Return: pointer to the created dictionary
  */
-instruction_t *create_instru()
+instruction_t *new_dict_func()
 {
 	instruction_t *instruct_buf = malloc(sizeof(instruction_t) * 18);
 
@@ -61,12 +61,12 @@ instruction_t *create_instru()
 }
 
 /**
- * call_funct - calls needed functions
+ * exec_func - calls needed functions
  * @glob_data: data struct for global vars
  * @read_opcode: command in mext_file to execute
  * Return: 0 on success, otherwise 1
  */
-int call_funct(global_glob_data_struct *glob_data, char *read_opcode)
+int exec_func(global_glob_data_struct *glob_data, char *read_opcode)
 {
 	int count = 0;
 
@@ -93,11 +93,11 @@ int call_funct(global_glob_data_struct *glob_data, char *read_opcode)
 
 
 /**
- * _isdigit - checks if a string parameter is an integer
+ * is_strint_int - checks if a string parameter is an integer
  * @opcode_arg: string to check if its an integer
  * Return: 0 for Success if integer, 1 otherwise
  */
-int _isdigit(char *opcode_arg)
+int is_strint_int(char *opcode_arg)
 {
 	int count = 0;
 
