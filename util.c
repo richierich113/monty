@@ -38,23 +38,23 @@ instruction_t *create_instru()
 		malloc_err();
 		return (NULL);
 	}
-	instruct_buf[0].opcode = "pall", instruct_buf[0].f = pall;
-	instruct_buf[1].opcode = "push", instruct_buf[1].f = push;
+	instruct_buf[0].opcode = "pall", instruct_buf[0].f = pall_func;
+	instruct_buf[1].opcode = "push", instruct_buf[1].f = push_func;
 	instruct_buf[2].opcode = "pint", instruct_buf[2].f = pint_func;
-	instruct_buf[3].opcode = "pop", instruct_buf[3].f = pop;
-	instruct_buf[4].opcode = "swap", instruct_buf[4].f = swap;
-	instruct_buf[5].opcode = "add", instruct_buf[5].f = add;
+	instruct_buf[3].opcode = "pop", instruct_buf[3].f = pop_func;
+	instruct_buf[4].opcode = "swap", instruct_buf[4].f = swap_func;
+	instruct_buf[5].opcode = "add", instruct_buf[5].f = add_func;
 	instruct_buf[6].opcode = "nop", instruct_buf[6].f = NULL;
-	instruct_buf[7].opcode = "sub", instruct_buf[7].f = sub;
-	instruct_buf[8].opcode = "div", instruct_buf[8].f = divi;
-	instruct_buf[9].opcode = "mul", instruct_buf[9].f = mul;
-	instruct_buf[10].opcode = "mod", instruct_buf[10].f = mod;
-	instruct_buf[11].opcode = "pchar", instruct_buf[11].f = pchar;
-	instruct_buf[12].opcode = "pstr", instruct_buf[12].f = pstr;
-	instruct_buf[13].opcode = "rotl", instruct_buf[13].f = rotl;
-	instruct_buf[14].opcode = "rotr", instruct_buf[14].f = rotr;
-	instruct_buf[15].opcode = "stack", instruct_buf[15].f = stack;
-	instruct_buf[16].opcode = "queue", instruct_buf[16].f = queue;
+	instruct_buf[7].opcode = "sub", instruct_buf[7].f = sub_func;
+	instruct_buf[8].opcode = "div", instruct_buf[8].f = div_func;
+	instruct_buf[9].opcode = "mul", instruct_buf[9].f = mul_func;
+	instruct_buf[10].opcode = "mod", instruct_buf[10].f = mod_func;
+	instruct_buf[11].opcode = "pchar", instruct_buf[11].f = pchar_func;
+	instruct_buf[12].opcode = "pstr", instruct_buf[12].f = pstr_func;
+	instruct_buf[13].opcode = "rotl", instruct_buf[13].f = rotl_func;
+	instruct_buf[14].opcode = "rotr", instruct_buf[14].f = rotr_func;
+	instruct_buf[15].opcode = "stack", instruct_buf[15].f = stack_func;
+	instruct_buf[16].opcode = "queue", instruct_buf[16].f = queue_func;
 	instruct_buf[17].opcode = NULL, instruct_buf[17].f = NULL;
 
 	return (instruct_buf);
