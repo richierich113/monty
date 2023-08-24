@@ -21,15 +21,15 @@ int main(int argc, char **argv)
 	check = start_global_glob_data_struct(&glob_data);
 	if (check != 0)
 		return (EXIT_FAILURE);
-	glob_data.file = fopen(argv[1], "r");
-	if (!glob_data.file)
+	glob_data.mext_file = fopen(argv[1], "r");
+	if (!glob_data.mext_file)
 	{
-		file_open_err(argv[1]);
+		mext_file_open_err(argv[1]);
 		free_all();
 		return (EXIT_FAILURE);
 	}
 	for (glob_data.line_number = 1; getline(&glob_data.buff, &glob_data.tmp,
-		glob_data.file) != -1; glob_data.line_number++)
+		glob_data.mext_file) != -1; glob_data.line_number++)
 	{
 		opcode_tok = strtok(glob_data.buff, " \r\t\n");
 		if (opcode_tok != NULL)

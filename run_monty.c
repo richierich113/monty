@@ -7,7 +7,7 @@
  */
 int start_global_glob_data_struct(global_glob_data_struct *glob_data)
 {
-	glob_data->file = NULL;
+	glob_data->mext_file = NULL;
 
 	glob_data->tmp = 0;
 
@@ -63,7 +63,7 @@ instruction_t *create_instru()
 /**
  * call_funct - calls needed functions
  * @glob_data: data struct for global vars
- * @read_opcode: command in file to execute
+ * @read_opcode: command in mext_file to execute
  * Return: 0 on success, otherwise 1
  */
 int call_funct(global_glob_data_struct *glob_data, char *read_opcode)

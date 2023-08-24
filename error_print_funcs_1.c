@@ -3,7 +3,7 @@
 /**
  * pint_err - Prints error message to stderr
  * when stack is empty
- * @line_number: file line number when reading
+ * @line_number: mext_file line number when reading
  */
 void pint_err(unsigned int line_number)
 {
@@ -14,7 +14,7 @@ void pint_err(unsigned int line_number)
 /**
  * pop_err - Prints error message to stderr when popping fails
  * due to empty stack
- * @line_number: file line number when reading
+ * @line_number: mext_file line number when reading
  */
 void pop_err(unsigned int line_number)
 {
@@ -24,7 +24,7 @@ void pop_err(unsigned int line_number)
 /**
  * modulus_err - Prints error message to stderr
  * when stack is empty
- * @line_number: file line number when reading
+ * @line_number: mext_file line number when reading
  */
 void modulus_err(unsigned int line_number)
 {
@@ -35,7 +35,7 @@ void modulus_err(unsigned int line_number)
 /**
  * print_char_err - Prints error message to stderr
  * when stack is empty
- * @line_number: file line number when reading
+ * @line_number: mext_file line number when reading
  */
 void print_char_err(unsigned int line_number)
 {
@@ -46,7 +46,7 @@ void print_char_err(unsigned int line_number)
 /**
  * printch_out_of_range_err - Prints error message to stderr
  * If the value is not in the ascii table
- * @line_number: file line number when reading
+ * @line_number: mext_file line number when reading
  */
 void printch_out_of_range_err(unsigned int line_number)
 {

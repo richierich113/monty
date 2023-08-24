@@ -11,8 +11,8 @@ void free_all(void)
 	if (glob_data.buff != NULL)
 		free(glob_data.buff);
 
-	if (glob_data.file != NULL)
-		fclose(glob_data.file);
+	if (glob_data.mext_file != NULL)
+		fclose(glob_data.mext_file);
 
 	free(glob_data.dict);
 	if (glob_data.head != NULL)

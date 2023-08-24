@@ -4,7 +4,7 @@
 /**
  * multiply_err - Prints error message to stderr
  * when stack is empty
- * @line_number: file line number when reading
+ * @line_number: mext_file line number when reading
  */
 void multiply_err(unsigned int line_number)
 {

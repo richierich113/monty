@@ -54,18 +54,18 @@ typedef struct instruction_s
 
 /**
  * struct glob_glob_data - data struct for data used in multiple
- * file modules
- * @file: file name
- * @tmp: number of chars read from file data
+ * mext_file modules
+ * @mext_file: mext_file name
+ * @tmp: number of chars read from mext_file data
  * @dict: data of the instruction in a dictionary
  * @buff: getline function buffer data
  * @head: pointer to linked list data
- * @line_number: file line number tracker
+ * @line_number: mext_file line number tracker
  * @MODE: program mode whether stack or queue
  */
 typedef struct glob_glob_data
 {
-	FILE *file;
+	FILE *mext_file;
 	char *buff;
 	size_t tmp;
 	instruction_t *dict;
@@ -80,7 +80,7 @@ extern global_glob_data_struct glob_data;
 
 /* new functions*/
 int argnum_error(void);
-void file_open_err(const char *filename);
+void mext_file_open_err(const char *mext_filename);
 void unknown_instruc_err(unsigned int line_number,
 	char *read_opcode);
 void push_error(unsigned int line_number);
