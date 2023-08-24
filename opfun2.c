@@ -39,8 +39,6 @@ void swap(stack_t **head, unsigned int line_number)
  */
 void add(stack_t **head, unsigned int line_number)
 {
-	int = result;
-
 	if (!*head || !(*head)->next)
 	{
 		add_stack_err(line_number);
@@ -49,8 +47,7 @@ void add(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	result = (*head)->next->n + (*head)->n;
-	(*head)->next->n  = result;
+	(*head)->next->n += (*head)->n;
 
 	pop(head, line_number);
 }
@@ -68,8 +65,6 @@ void add(stack_t **head, unsigned int line_number)
  */
 void sub(stack_t **head, unsigned int line_number)
 {
-	int result;
-
 	if (!*head || !(*head)->next)
 	{
 		sub_err(line_number);
@@ -78,8 +73,7 @@ void sub(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	result = (*head)->next->n - (*head)->n;
-	(*head)->next->n = result;
+	(*head)->next->n -= (*head)->n;
 
 	pop(head, line_number);
 }
