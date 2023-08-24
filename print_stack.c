@@ -22,12 +22,12 @@ void pint_func(stack_t **head, unsigned int line_number)
 
 
 /**
- * pall - prints all the values on the stack, starting
+ * pall_func - prints all the values on the stack, starting
  * from the top of the stack.
  * @head: Double linked list data struct
  * @line_number: File line number when reading
  */
-void pall(stack_t **head, unsigned int line_number)
+void pall_func(stack_t **head, unsigned int line_number)
 {
 	stack_t *node_check = *head;
 
