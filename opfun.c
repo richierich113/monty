@@ -78,9 +78,12 @@ void pint(stack_t **head, unsigned int line_number)
 	if (!*head)
 	{
 		pint_err(line_number);
+
 		free_all();
+
 		exit(EXIT_FAILURE);
 	}
+
 	printf("%d\n", (*head)->n);
 }
 
