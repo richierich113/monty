@@ -16,7 +16,7 @@ void add_func(stack_t **head, unsigned int line_number)
 	{
 		add_stack_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 		exit(EXIT_FAILURE);
 	}
 
@@ -37,7 +37,7 @@ void div_func(stack_t **head, unsigned int line_number)
 	{
 		div_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 
 		exit(EXIT_FAILURE);
 	}
@@ -46,7 +46,7 @@ void div_func(stack_t **head, unsigned int line_number)
 	{
 		div_by_zero_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 
 		exit(EXIT_FAILURE);
 	}
@@ -71,7 +71,7 @@ void swap_func(stack_t **head, unsigned int line_number)
 	{
 		swap_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 
 		exit(EXIT_FAILURE);
 	}
@@ -102,7 +102,7 @@ void sub_func(stack_t **head, unsigned int line_number)
 	{
 		sub_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 		exit(EXIT_FAILURE);
 	}
 

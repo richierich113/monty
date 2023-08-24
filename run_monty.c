@@ -11,13 +11,13 @@ int exec_func(global_glob_data_struct *glob_data, char *read_opcode)
 {
 	int count = 0;
 
-	while (glob_data->dict[count].opcode)
+	while (glob_data->instruc_dict[count].opcode)
 	{
-		if (strcmp(read_opcode, glob_data->dict[count].opcode) == 0)
+		if (strcmp(read_opcode, glob_data->instruc_dict[count].opcode) == 0)
 		{
-			if (!glob_data->dict[count].f)
+			if (!glob_data->instruc_dict[count].f)
 				return (EXIT_SUCCESS);
-			glob_data->dict[count].f(&glob_data->head, glob_data->line_number);
+			glob_data->instruc_dict[count].f(&glob_data->head, glob_data->line_number);
 			return (EXIT_SUCCESS);
 		}
 		count += 1;
@@ -35,10 +35,10 @@ int exec_func(global_glob_data_struct *glob_data, char *read_opcode)
 
 
 /**
- * new_dict_func - Creates a new functions dictionary
- * Return: pointer to the created dictionary
+ * new_instruc_dict_func - Creates a new functions instruc_dictionary
+ * Return: pointer to the created instruc_dictionary
  */
-instruction_t *new_dict_func()
+instruction_t *new_instruc_dict_func()
 {
 	instruction_t *instruct_buf = malloc(sizeof(instruction_t) * 18);
 

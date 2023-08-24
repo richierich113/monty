@@ -25,20 +25,20 @@ int main(int argc, char **argv)
 	if (!glob_data.mext_file)
 	{
 		mext_file_open_err(argv[1]);
-		free_all();
+		free_alloc_memory();
 		return (EXIT_FAILURE);
 	}
-	for (glob_data.line_number = 1; getline(&glob_data.buff, &glob_data.tmp,
+	for (glob_data.line_number = 1; getline(&glob_data.read_buffer, &glob_data.tmp,
 		glob_data.mext_file) != -1; glob_data.line_number++)
 	{
-		opcode_tok = strtok(glob_data.buff, " \r\t\n");
+		opcode_tok = strtok(glob_data.read_buffer, " \r\t\n");
 		if (opcode_tok != NULL)
 			if (exec_func(&glob_data, opcode_tok) == EXIT_FAILURE)
 			{
-				free_all();
+				free_alloc_memory();
 				return (EXIT_FAILURE);
 			}
 	}
-	free_all();
+	free_alloc_memory();
 	return (EXIT_SUCCESS);
 }

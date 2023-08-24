@@ -10,7 +10,7 @@ void stack_func(stack_t **head, unsigned int line_number)
 	(void) line_number;
 	(void) head;
 
-	glob_data.MODE = 0;
+	glob_data.FORMAT = 0;
 }
 
 /**
@@ -23,5 +23,5 @@ void queue_func(stack_t **head, unsigned int line_number)
 	(void) line_number;
 	(void) head;
 
-	glob_data.MODE = 1;
+	glob_data.FORMAT = 1;
 }

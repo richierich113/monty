@@ -16,18 +16,18 @@ void push_func(stack_t **head, unsigned int line_number)
 	if (num == NULL || (is_strint_int(num) != 0 && num[0] != '-'))
 	{
 		push_error(line_number);
-		free_all();
+		free_alloc_memory();
 		exit(EXIT_FAILURE);
 	}
 	new_elem = malloc(sizeof(stack_t));
 	if (!new_elem)
 	{
 		malloc_err();
-		free_all();
+		free_alloc_memory();
 		exit(EXIT_FAILURE);
 	}
 	new_elem->n = atoi(num);
-	if (glob_data.MODE == 0 || !*head)
+	if (glob_data.FORMAT == 0 || !*head)
 	{
 		new_elem->next = *head;
 		/* *head = new_elem; */

@@ -15,7 +15,7 @@ void pop_func(stack_t **head, unsigned int line_number)
 	{
 		pop_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 
 		exit(EXIT_FAILURE);
 	}

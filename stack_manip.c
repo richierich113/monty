@@ -14,7 +14,7 @@ void mod_func(stack_t **head, unsigned int line_number)
 	{
 		modulus_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 
 		exit(EXIT_FAILURE);
 	}
@@ -23,7 +23,7 @@ void mod_func(stack_t **head, unsigned int line_number)
 	{
 		div_by_zero_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 
 		exit(EXIT_FAILURE);
 	}
@@ -79,7 +79,7 @@ void pchar_func(stack_t **head, unsigned int line_number)
 	{
 		print_char_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 		exit(EXIT_FAILURE);
 	}
 
@@ -91,7 +91,7 @@ void pchar_func(stack_t **head, unsigned int line_number)
 
 	printch_out_of_range_err(line_number);
 
-	free_all();
+	free_alloc_memory();
 
 	exit(EXIT_FAILURE);
 }
@@ -116,7 +116,7 @@ void mul_func(stack_t **head, unsigned int line_number)
 	{
 		multiply_err(line_number);
 
-		free_all();
+		free_alloc_memory();
 
 		exit(EXIT_FAILURE);
 	}

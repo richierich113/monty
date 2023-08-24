@@ -57,21 +57,21 @@ typedef struct instruction_s
  * mext_file modules
  * @mext_file: mext_file name
  * @tmp: number of chars read from mext_file data
- * @dict: data of the instruction in a dictionary
- * @buff: getline function buffer data
+ * @instruc_dict: data of the instruction in a instruc_dictionary
+ * @read_buffer: getline function read_bufferer data
  * @head: pointer to linked list data
  * @line_number: mext_file line number tracker
- * @MODE: program mode whether stack or queue
+ * @FORMAT: program mode whether stack or queue
  */
 typedef struct glob_glob_data
 {
 	FILE *mext_file;
-	char *buff;
+	char *read_buffer;
 	size_t tmp;
-	instruction_t *dict;
+	instruction_t *instruc_dict;
 	stack_t *head;
 	unsigned int line_number;
-	int MODE;
+	int FORMAT;
 } global_glob_data_struct;
 
 extern global_glob_data_struct glob_data;
@@ -99,9 +99,9 @@ void printch_out_of_range_err(unsigned int line_number);
 
 
 int start_global_glob_data_struct(global_glob_data_struct *glob_data);
-instruction_t *new_dict_func();
+instruction_t *new_instruc_dict_func();
 int exec_func(global_glob_data_struct *glob_data, char *read_opcode);
-void free_all(void);
+void free_alloc_memory(void);
 int is_strint_int(char *string);
 
 void pint_func(stack_t **head, unsigned int line_number);
