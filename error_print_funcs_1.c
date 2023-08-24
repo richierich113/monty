@@ -14,6 +14,7 @@ void pint_err(unsigned int line_number)
 /**
  * pop_err - Prints error message to stderr when popping fails
  * due to empty stack
+ * @line_number: file line number when reading
  */
 void pop_err(unsigned int line_number)
 {
