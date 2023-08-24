@@ -25,7 +25,7 @@ void swap(stack_t **head, unsigned int line_number)
 }
 
 /**
- * add - swaps the top two elements of the stack.
+ * add - adds the top two elements of the stack.
  * @head: Double linked list data struct head
  * @line_number: File line number when reading
  */
@@ -43,44 +43,46 @@ void add(stack_t **head, unsigned int line_number)
 }
 
 /**
- * sub - substract the top two elements of the stack
- * @stack: Double linked list
- * @line_number: Line counter
+ * sub - subtracts the top element of the stack from the second
+ * top element of the stack.
+ * @head: Double linked list data struct head
+ * @line_number: File line number when reading
  */
-void sub(stack_t **stack, unsigned int line_number)
+void sub(stack_t **head, unsigned int line_number)
 {
-	if (!*stack || !(*stack)->next)
+	if (!*head || !(*head)->next)
 	{
 		sub_err(line_number);
 
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
-	pop(stack, line_number);
+	(*head)->next->n = (*head)->next->n - (*head)->n;
+	pop(head, line_number);
 }
 
 /**
- * divi - divide the top two elements of the stack
- * @stack: Double linked list
- * @line_number: File line counter
+ * divi - divides the second top element of the stack
+ * by the top element of the stack.
+ * @head: Double linked list data struct head
+ * @line_number: File line number when reading
  */
-void divi(stack_t **stack, unsigned int line_number)
+void divi(stack_t **head, unsigned int line_number)
 {
-	if (!*stack || !(*stack)->next)
+	if (!*head || !(*head)->next)
 	{
 		div_err(line_number);
 
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n == 0)
+	if ((*head)->n == 0)
 	{
 		div_by_zero_err(line_number);
 
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n = (*stack)->next->n / (*stack)->n;
-	pop(stack, line_number);
+	(*head)->next->n = (*head)->next->n / (*head)->n;
+	pop(head, line_number);
 }
