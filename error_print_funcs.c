@@ -41,7 +41,7 @@ void unknown_instruc_err(unsigned int line_number,
 
 
 /**
- * unknown_instruc_err - Prints error message to stderr
+ * push_error - Prints error message to stderr
  * when instruction is unknown
  * @line_number: file line number when reading
  */
