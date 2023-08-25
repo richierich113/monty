@@ -28,8 +28,9 @@ int main(int argc, char **argv)
 		free_alloc_memory();
 		return (EXIT_FAILURE);
 	}
-	for (glob_data.line_number = 1; getline(&glob_data.read_buffer, &glob_data.tmp,
-		glob_data.mext_file) != -1; glob_data.line_number++)
+	for (glob_data.line_number = 1; getline(&glob_data.read_buffer,
+		&glob_data.tmp, glob_data.mext_file)
+		!= -1; glob_data.line_number++)
 	{
 		opcode_tok = strtok(glob_data.read_buffer, " \r\t\n");
 		if (opcode_tok != NULL)
