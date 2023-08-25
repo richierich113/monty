@@ -36,12 +36,11 @@ void push_func(stack_t **head, unsigned int line_number)
 			(*head)->prev = new_elem;
 		*head = new_elem;
 	}
-	else
-	{
-		for (; node_check->next; node_check = node_check->next);
 
-		node_check->next = new_elem;
-		new_elem->prev = node_check;
-		new_elem->next = NULL;
-	}
+	for (; node_check->next; node_check = node_check->next);
+
+	node_check->next = new_elem;
+	new_elem->prev = node_check;
+
+	new_elem->next = NULL;
 }
