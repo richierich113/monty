@@ -17,7 +17,8 @@ void rotr_func(stack_t **head, unsigned int line_number)
 
 	tmp_node = *head;
 
-	for (; tmp_node->next; tmp_node = tmp_node->next);
+	while (tmp_node->next)
+		tmp_node = tmp_node->next;
 
 	tmp_node->next = *head;
 
@@ -46,7 +47,8 @@ void rotl_func(stack_t **head, unsigned int line_number)
 
 	(*head)->next->prev = NULL;
 
-	for (; tmp_node->next; tmp_node = tmp_node->next);
+	while (tmp_node->next)
+		tmp_node = tmp_node->next;
 
 	tmp_node->next = *head;
 
