@@ -2,48 +2,44 @@
 
 
 /**
- * push_func - pushes an element to the stack.
- * @head: Double linked list data structure
- * @line_number: File line number when reading
+ * push - Insert a new value in list
+ * @stack: Double linked list
+ * @line_number: File line execution
  */
-void push_func(stack_t **head, unsigned int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_elem = NULL;
-	stack_t *node_check = *head;
+	stack_t *tmp = NULL, *tm = *stack;
 	char *num;
 
 	num = strtok(NULL, " \r\t\n");
-	if (num == NULL || (is_strint_int(num) != 0 && num[0] != '-'))
+	if (num == NULL || (_isdigit(num) != 0 && num[0] != '-'))
 	{
-		push_error(line_number);
-		free_alloc_memory();
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_all();
 		exit(EXIT_FAILURE);
 	}
-	new_elem = malloc(sizeof(stack_t));
-	if (!new_elem)
+	tmp = malloc(sizeof(stack_t));
+	if (!tmp)
 	{
-		malloc_err();
-		free_alloc_memory();
+		fprintf(stderr, "Error: malloc failed\n");
+		free_all();
 		exit(EXIT_FAILURE);
 	}
-	new_elem->n = atoi(num);
-	if (glob_data.FORMAT == 0 || !*head)
+	tmp->n = atoi(num);
+	if (var.MODE == 0 || !*stack)
 	{
-		new_elem->next = *head;
-		/* *head = new_elem; */
-		new_elem->prev = NULL;
-		if (*head)
-			(*head)->prev = new_elem;
-		*head = new_elem;
+		tmp->next = *stack;
+		tmp->prev = NULL;
+		if (*stack)
+			(*stack)->prev = tmp;
+		*stack = tmp;
 	}
 	else
 	{
-		while (node_check->next)
-			node_check = node_check->next;
-
-		node_check->next = new_elem;
-		new_elem->prev = node_check;
-
-		new_elem->next = NULL;
+		while (tm->next)
+			tm = tm->next;
+		tm->next = tmp;
+		tmp->prev = tm;
+		tmp->next = NULL;
 	}
 }
