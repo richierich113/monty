@@ -44,6 +44,7 @@ void mod_func(stack_t **head, unsigned int line_number)
 void pstr_func(stack_t **head, unsigned int line_number)
 {
 	stack_t *tmp = *head;
+
 	(void) line_number;
 
 	if (!head || !*head)
@@ -51,15 +52,13 @@ void pstr_func(stack_t **head, unsigned int line_number)
 		putchar('\n');
 		return;
 	}
-	while (tmp)
+
+	while (tmp && tmp->n != 0 && isascii(tmp->n))
 	{
-		if (tmp->n == 0)
-			break;
-		if (!isascii((tmp)->n))
-			break;
 		putchar(tmp->n);
 		tmp = tmp->next;
 	}
+
 	putchar('\n');
 }
 
