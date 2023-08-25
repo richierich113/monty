@@ -38,7 +38,8 @@ void push_func(stack_t **head, unsigned int line_number)
 	}
 	else
 	{
-		for (; node_check->next; node_check = node_check->next);
+		while (node_check->next)
+			node_check = node_check->next;
 
 		node_check->next = new_elem;
 		new_elem->prev = node_check;
