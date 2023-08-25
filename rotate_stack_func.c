@@ -41,13 +41,12 @@ void rotl_func(stack_t **head, unsigned int line_number)
 	stack_t *tmp_node = *head;
 	(void) line_number;
 
-	if (!head || !*head || !(*head)->next)
+	if (!*head || !(*head)->next)
 		return;
 
 	(*head)->next->prev = NULL;
 
-	while (tmp_node->next)
-		tmp_node = tmp_node->next;
+	for (; tmp_node->next; tmp_node = tmp_node->next);
 
 	tmp_node->next = *head;
 
