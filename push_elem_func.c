@@ -10,10 +10,10 @@ void push_func(stack_t **head, unsigned int line_number)
 {
 	stack_t *new_elem = NULL;
 	stack_t *node_check = *head;
-	char *token;
+	char *num;
 
-	token = strtok(NULL, " \r\t\n");
-	if (token == NULL || (is_strint_int(token) != 0 && token[0] != '-'))
+	num = strtok(NULL, " \r\t\n");
+	if (num == NULL || (is_strint_int(num) != 0 && num[0] != '-'))
 	{
 		push_error(line_number);
 		free_alloc_memory();
@@ -26,7 +26,7 @@ void push_func(stack_t **head, unsigned int line_number)
 		free_alloc_memory();
 		exit(EXIT_FAILURE);
 	}
-	new_elem->n = atoi(token);
+	new_elem->n = atoi(num);
 	if (glob_data.FORMAT == 0 || !*head)
 	{
 		new_elem->next = *head;
