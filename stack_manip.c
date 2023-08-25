@@ -85,14 +85,15 @@ void pchar_func(stack_t **head, unsigned int line_number)
 	if (isascii((*head)->n))
 	{
 		printf("%c\n", (*head)->n);
-		return;
 	}
+	else
+	{
+		printch_out_of_range_err(line_number);
 
-	printch_out_of_range_err(line_number);
+		free_alloc_memory();
 
-	free_alloc_memory();
-
-	exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
