@@ -2,11 +2,11 @@
 
 
 /**
- * push - Insert a new value in list
+ * push_func - Insert a new value in list
  * @stack: Double linked list
  * @line_number: File line execution
  */
-void push(stack_t **stack, unsigned int line_number)
+void push_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = NULL, *tm = *stack;
 	char *num;
